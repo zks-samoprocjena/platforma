@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Izjava o sukladnosti - {{ organization.name }}</title>
+    <link rel="stylesheet" href="../base/styles.css">
+</head>
+<body>
+    {% include 'base/header.html' %}
+    
+    <h1>Izjava o sukladnosti sa Zakonom o kibernetičkoj sigurnosti (ZKS) i NIS2 direktivom</h1>
+    
+    <div class="no-break">
+        <p><strong>Organizacija:</strong> {{ organization.name }}</p>
+        <p><strong>OIB/Šifra:</strong> {{ organization.code }}</p>
+        <p><strong>Tip organizacije:</strong> {{ organization.type }}</p>
+        <p><strong>Datum procjene:</strong> {{ assessment.completed_at|datetime('%d.%m.%Y') if assessment.completed_at else assessment.created_at|datetime('%d.%m.%Y') }}</p>
+        <p><strong>Razina sigurnosti:</strong> {{ assessment.security_level|upper }}</p>
+    </div>
+    
+    <h3>Rezultati samoprocjene</h3>
+    
+    <div class="score-box">
+        <div class="score-value">{{ assessment.compliance_percentage|percentage }}</div>
+        <div class="score-label">Postotak sukladnosti</div>
+    </div>
+    
+    <div class="score-box">
+        <div class="score-value">{{ assessment.total_score|number(2) }} / 5.0</div>
+        <div class="score-label">Ukupna ocjena</div>
+    </div>
+    
+    <h3>Status sukladnosti</h3>
+    
+    <p>Na temelju provedene samoprocjene kibernetičke sigurnosti, potvrđujemo sljedeće:</p>
+    
+    <div class="compliance-status {{ 'compliant' if assessment.compliance_percentage >= 80 else 'partial' if assessment.compliance_percentage >= 50 else 'non-compliant' }}">
+        {% if assessment.compliance_percentage >= 80 %}
+            <strong>Potpuna sukladnost</strong>
+        {% elif assessment.compliance_percentage >= 50 %}
+            <strong>Djelomična sukladnost</strong>
+        {% else %}
+            <strong>Nesukladnost</strong>
+        {% endif %}
+    </div>
+    
+    {% if include_details %}
+    <h3>Ključni pokazatelji</h3>
+    <ul>
+        <li>Provedena je samoprocjena svih relevantnih mjera kibernetičke sigurnosti</li>
+        <li>Identificirane su postojeće kontrole i njihova razina implementacije</li>
+        <li>Utvrđene su oblasti koje zahtijevaju poboljšanje</li>
+        <li>Definiran je akcijski plan za otklanjanje nedostataka</li>
+    </ul>
+    {% endif %}
+    
+    <h3>Izjava odgovorne osobe</h3>
+    
+    <p>Ovime izjavljujem da su podaci navedeni u ovoj samoprocjeni istiniti i točni prema mom najboljem znanju i uvjerenju. 
+    Organizacija se obvezuje na kontinuirano unapređenje kibernetičke sigurnosti u skladu sa zakonskim zahtjevima i najboljim praksama.</p>
+    
+    <div class="signature-block">
+        <p><strong>Ime i prezime odgovorne osobe:</strong> {{ responsible_person.name }}</p>
+        <p><strong>Funkcija:</strong> {{ responsible_person.title }}</p>
+        
+        <p style="margin-top: 2em;"><strong>Datum generiranja dokumenta:</strong> {{ declaration_date|datetime('%d.%m.%Y') }}</p>
+        
+        <p style="margin-top: 1em;"><strong>Mjesto:</strong> {{ place|default('Zagreb', true) }}</p>
+        
+        <div style="margin-top: 3em;">
+            <p><strong>Potpis:</strong></p>
+            <div class="signature-line"></div>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    {% if include_details %}
+    <h2>Prilog: Sažetak rezultata po mjerama</h2>
+    
+    <p>Ovaj prilog sadrži pregled rezultata samoprocjene po glavnim mjerama kibernetičke sigurnosti.</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Mjera</th>
+                <th>Ocjena</th>
+                <th>Postotak</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# This will be populated with actual measure data #}
+            <tr>
+                <td colspan="4" style="text-align: center;">
+                    <em>Detaljni rezultati će biti dodani u finalnoj verziji</em>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+    
+    {% if assessment_version or platform_version %}
+    <div class="metadata-block" style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ccc; font-size: 0.9em; color: #666;">
+        {% if assessment_version %}
+        <p><strong>ID upitnika / verzija kalkulatora:</strong> {{ assessment_version }}</p>
+        {% endif %}
+        {% if platform_version %}
+        <p><strong>Verzija platforme:</strong> {{ platform_version }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    {% include 'base/footer.html' %}
+</body>
+</html>

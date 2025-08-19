@@ -1,0 +1,35 @@
+services:
+  # Production overrides for frontend (gateway)
+  gateway:
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - BACKEND_URL=http://assessment-api:8000
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+    command: node server.js
+    ports:
+      - "3000:3000"
+    depends_on:
+      - assessment-api
+    restart: unless-stopped
+
+  # Production overrides for backend API
+  assessment-api:
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/assessment_db
+      - REDIS_URL=redis://redis:6379/0
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - DEBUG=false
+      - LOG_LEVEL=info
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
+    restart: unless-stopped
+
+  postgres:
+    restart: unless-stopped
+
+  redis:
+    restart: unless-stopped
+
+  ollama:
+    restart: unless-stopped

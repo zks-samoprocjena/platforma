@@ -1,0 +1,428 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Croatian typography optimization with enhanced readability */
+:root {
+  --font-family-primary: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', '-apple-system', 'BlinkMacSystemFont', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+  
+  /* Enhanced shadows for depth */
+  --shadow-soft: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+  --shadow-medium: 0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-strong: 0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 2px 10px -2px rgba(0, 0, 0, 0.04);
+  
+  /* Smooth transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+}
+
+/* Enhanced base styles */
+* {
+  border-color: hsl(var(--b3));
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family-primary);
+  font-feature-settings: 'liga' 1, 'calt' 1, 'kern' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-numeric: tabular-nums;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Enhanced focus styles for accessibility */
+*:focus {
+  outline: 2px solid hsl(var(--p));
+  outline-offset: 2px;
+}
+
+/* Croatian diacritic support */
+.croatian-text {
+  font-variant-ligatures: normal;
+  font-feature-settings: 'liga' 1, 'calt' 1, 'kern' 1;
+  hyphenate-character: '-';
+  hyphens: auto;
+  word-break: break-word;
+}
+
+/* Enhanced custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--b2));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--b3));
+  border-radius: 4px;
+  transition: background-color var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--bc) / 0.3);
+}
+
+/* Selection styling */
+::selection {
+  background-color: hsl(var(--p) / 0.2);
+  color: hsl(var(--pc));
+}
+
+/* Enhanced component styles */
+@layer components {
+  /* Assessment cards with improved depth and interaction */
+  .assessment-card {
+    @apply bg-base-100 border border-base-300 rounded-2xl p-6 
+           transition-all duration-300 ease-out
+           hover:shadow-lg hover:border-primary/20 hover:-translate-y-1
+           focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/30;
+  }
+
+  .assessment-card-featured {
+    @apply bg-base-100 border border-base-300 rounded-2xl p-6 
+           transition-all duration-300 ease-out
+           hover:shadow-lg hover:border-primary/20 hover:-translate-y-1
+           focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/30
+           bg-gradient-to-br from-primary/5 to-accent/5 
+           border-primary/20 shadow-lg;
+  }
+
+  /* Control cards with enhanced interaction states */
+  .control-card {
+    @apply bg-base-100 border border-base-300 rounded-xl p-5 mb-4 
+           transition-all duration-200 ease-out
+           hover:border-primary/30 hover:shadow-md hover:bg-base-200
+           focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/40;
+  }
+
+  .control-card-completed {
+    @apply bg-base-100 border border-base-300 rounded-xl p-5 mb-4 
+           transition-all duration-200 ease-out
+           hover:border-primary/30 hover:shadow-md hover:bg-base-200
+           focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/40
+           border-success/30 bg-success/5;
+  }
+
+  .control-card-mandatory {
+    @apply bg-base-100 border border-base-300 rounded-xl p-5 mb-4 
+           transition-all duration-200 ease-out
+           hover:border-primary/30 hover:shadow-md hover:bg-base-200
+           focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/40
+           border-l-4 border-l-warning-500 bg-warning/5;
+  }
+
+  /* Measure sections with better visual hierarchy */
+  .measure-section {
+    @apply bg-gradient-to-r from-base-100 to-base-200 rounded-2xl p-8 mb-8 
+           border border-base-300 shadow-lg
+           transition-all duration-300 ease-out;
+  }
+
+  .measure-section-header {
+    @apply flex items-center justify-between mb-6 pb-4 border-b border-base-300;
+  }
+
+  /* Enhanced form inputs */
+  .score-input {
+    @apply range range-primary range-lg 
+           transition-all duration-200 ease-out
+           focus:ring-2 focus:ring-primary/20;
+  }
+
+  .form-input {
+    @apply input input-bordered w-full 
+           transition-all duration-200 ease-out
+           focus:border-primary focus:ring-2 focus:ring-primary/20
+           placeholder:text-neutral-400;
+  }
+
+  .form-textarea {
+    @apply textarea textarea-bordered w-full min-h-[100px]
+           transition-all duration-200 ease-out
+           focus:border-primary focus:ring-2 focus:ring-primary/20
+           placeholder:text-neutral-400;
+  }
+
+
+
+  /* Progress indicators with smooth animations */
+  .progress-indicator {
+    @apply progress progress-primary w-full h-3 rounded-full
+           transition-all duration-500 ease-out;
+  }
+
+  .progress-indicator-small {
+    @apply progress progress-primary w-full h-2 rounded-full
+           transition-all duration-500 ease-out;
+  }
+
+  /* Enhanced buttons with improved states */
+  .btn-enhanced {
+    @apply btn transition-all duration-200 ease-out
+           hover:scale-105 active:scale-95
+           focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary-enhanced {
+    @apply btn btn-primary transition-all duration-200 ease-out
+           hover:scale-105 active:scale-95
+           focus:ring-2 focus:ring-offset-2
+           hover:shadow-xl focus:ring-primary/30;
+  }
+
+  .btn-secondary-enhanced {
+    @apply btn btn-secondary transition-all duration-200 ease-out
+           hover:scale-105 active:scale-95
+           focus:ring-2 focus:ring-offset-2
+           hover:shadow-lg focus:ring-secondary/30;
+  }
+
+  /* Loading states with shimmer effect */
+  .loading-shimmer {
+    @apply relative overflow-hidden bg-neutral-100 rounded;
+  }
+
+  .loading-shimmer::after {
+    @apply absolute inset-0 bg-gradient-to-r 
+           from-transparent via-white/40 to-transparent
+           animate-shimmer;
+    content: '';
+  }
+
+  /* Status badges with improved styling */
+  .status-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+           transition-all duration-200 ease-out;
+  }
+
+  .status-draft {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+           transition-all duration-200 ease-out bg-neutral-100 text-neutral-700;
+  }
+
+  .status-in-progress {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+           transition-all duration-200 ease-out bg-info/10 text-info-700 ring-1 ring-info/20;
+  }
+
+  .status-completed {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+           transition-all duration-200 ease-out bg-success/10 text-success-700 ring-1 ring-success/20;
+  }
+
+  .status-review {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+           transition-all duration-200 ease-out bg-warning/10 text-warning-700 ring-1 ring-warning/20;
+  }
+
+  /* Notification styles */
+  .notification {
+    @apply rounded-xl p-4 border-l-4 shadow-lg backdrop-blur-sm
+           transition-all duration-300 ease-out
+           animate-slide-right;
+  }
+
+  .notification-success {
+    @apply rounded-xl p-4 border-l-4 shadow-lg backdrop-blur-sm
+           transition-all duration-300 ease-out
+           animate-slide-right bg-success/5 border-l-success text-success-800;
+  }
+
+  .notification-warning {
+    @apply rounded-xl p-4 border-l-4 shadow-lg backdrop-blur-sm
+           transition-all duration-300 ease-out
+           animate-slide-right bg-warning/5 border-l-warning text-warning-800;
+  }
+
+  .notification-error {
+    @apply rounded-xl p-4 border-l-4 shadow-lg backdrop-blur-sm
+           transition-all duration-300 ease-out
+           animate-slide-right bg-error/5 border-l-error text-error-800;
+  }
+
+  .notification-info {
+    @apply rounded-xl p-4 border-l-4 shadow-lg backdrop-blur-sm
+           transition-all duration-300 ease-out
+           animate-slide-right bg-info/5 border-l-info text-info-800;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Croatian compliance colors with enhanced variants */
+@layer utilities {
+  .compliance-excellent {
+    @apply bg-gradient-to-r from-success to-emerald-600 
+           text-white shadow-xl shadow-success/20;
+  }
+
+  .compliance-excellent-soft {
+    @apply bg-success/10 text-success-content 
+           ring-1 ring-success/20;
+  }
+
+  .compliance-good {
+    @apply bg-gradient-to-r from-info to-blue-600 
+           text-white shadow-xl shadow-info/20;
+  }
+
+  .compliance-good-soft {
+    @apply bg-info/10 text-info-content 
+           ring-1 ring-info/20;
+  }
+
+  .compliance-moderate {
+    @apply bg-gradient-to-r from-warning to-amber-600 
+           text-white shadow-xl shadow-warning/20;
+  }
+
+  .compliance-moderate-soft {
+    @apply bg-warning/10 text-warning-content 
+           ring-1 ring-warning/20;
+  }
+
+  .compliance-poor {
+    @apply bg-gradient-to-r from-error to-red-600 
+           text-white shadow-xl shadow-error/20;
+  }
+
+  .compliance-poor-soft {
+    @apply bg-error/10 text-error-content 
+           ring-1 ring-error/20;
+  }
+
+  /* Interactive utilities */
+  .interactive-scale {
+    @apply transition-transform duration-200 ease-out hover:scale-105 active:scale-95;
+  }
+
+  .interactive-glow {
+    @apply transition-all duration-300 ease-out hover:shadow-xl;
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .border-gradient {
+    @apply bg-gradient-to-r from-primary to-accent p-px rounded-xl;
+  }
+}
+
+/* Enhanced mobile responsiveness for Croatian text */
+@media (max-width: 768px) {
+  .croatian-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+  
+  .assessment-card {
+    @apply p-4 rounded-xl;
+  }
+  
+  .control-card {
+    @apply p-4 mb-3 rounded-lg;
+  }
+
+  .measure-section {
+    @apply p-6 rounded-xl;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --shadow-soft: 0 2px 15px -3px rgba(0, 0, 0, 0.3), 0 10px 20px -2px rgba(0, 0, 0, 0.2);
+    --shadow-medium: 0 4px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    --shadow-strong: 0 10px 40px -10px rgba(0, 0, 0, 0.5), 0 2px 10px -2px rgba(0, 0, 0, 0.2);
+  }
+
+  .assessment-card {
+    @apply hover:bg-base-200/50;
+  }
+
+  .control-card {
+    @apply hover:bg-base-200/30;
+  }
+}
+
+/* Print styles for reports */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .assessment-card,
+  .control-card,
+  .measure-section {
+    @apply shadow-none border border-neutral-300 break-inside-avoid;
+  }
+
+  .croatian-text {
+    color: #000 !important;
+    background: transparent !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .assessment-card,
+  .control-card,
+  .measure-section {
+    @apply border-2 border-neutral-900;
+  }
+
+  .btn {
+    @apply border-2;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

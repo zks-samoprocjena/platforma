@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Izvještaj o samoprocjeni - {{ organization.name }}</title>
+    <link rel="stylesheet" href="../base/styles.css">
+</head>
+<body>
+    {% include 'base/header.html' %}
+    
+    <h1>IZVJEŠTAJ O SAMOPROCJENI KIBERNETIČKE SIGURNOSTI</h1>
+    
+    <div class="no-break">
+        <h2>1. Osnovni podaci</h2>
+        
+        <table>
+            <tr>
+                <td><strong>Organizacija:</strong></td>
+                <td>{{ organization.name }}</td>
+            </tr>
+            <tr>
+                <td><strong>Šifra/OIB:</strong></td>
+                <td>{{ organization.code }}</td>
+            </tr>
+            <tr>
+                <td><strong>Tip organizacije:</strong></td>
+                <td>{{ organization.type }}</td>
+            </tr>
+            <tr>
+                <td><strong>Veličina:</strong></td>
+                <td>{{ organization.size or 'Nije specificirano' }}</td>
+            </tr>
+            <tr>
+                <td><strong>Razina sigurnosti:</strong></td>
+                <td>{{ assessment.security_level|upper }}</td>
+            </tr>
+            <tr>
+                <td><strong>Datum procjene:</strong></td>
+                <td>{{ assessment.completed_at|datetime('%d.%m.%Y') if assessment.completed_at else 'U tijeku' }}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="no-break">
+        <h2>2. Sažetak rezultata</h2>
+        
+        <div class="score-box">
+            <div class="score-value">{{ assessment.compliance_percentage|percentage }}</div>
+            <div class="score-label">Ukupna sukladnost</div>
+        </div>
+        
+        <div class="score-box">
+            <div class="score-value">{{ assessment.total_score|number(2) }}/5.0</div>
+            <div class="score-label">Prosječna ocjena</div>
+        </div>
+        
+        {% if ai_executive_summary %}
+        <div class="recommendation">
+            <h4 class="recommendation-title">Izvršni sažetak</h4>
+            {{ ai_executive_summary|replace('\n', '<br>')|safe }}
+        </div>
+        {% else %}
+        <p>Samoprocjena je provedena u skladu sa Zakonom o kibernetičkoj sigurnosti (ZKS) i NIS2 direktivom. 
+        Procjena obuhvaća {{ results.total_measures if results else '13' }} mjera kibernetičke sigurnosti koje su 
+        relevantne za organizacije na {{ assessment.security_level }} razini sigurnosti.</p>
+        {% endif %}
+    </div>
+    
+    {% if results and results.measures %}
+    <div class="page-break"></div>
+    
+    <h2>3. Rezultati po mjerama</h2>
+    
+    {% for measure in results.measures %}
+    <div class="measure-section">
+        <h3 class="measure-title">{{ measure.code }} - {{ measure.name }}</h3>
+        
+        <table>
+            <tr>
+                <td><strong>Ocjena dokumentiranosti:</strong></td>
+                <td>{{ measure.documentation_score|number(2) }}/5.0</td>
+            </tr>
+            <tr>
+                <td><strong>Ocjena implementacije:</strong></td>
+                <td>{{ measure.implementation_score|number(2) }}/5.0</td>
+            </tr>
+            <tr>
+                <td><strong>Ukupna ocjena:</strong></td>
+                <td>{{ measure.total_score|number(2) }}/5.0</td>
+            </tr>
+            <tr>
+                <td><strong>Postotak sukladnosti:</strong></td>
+                <td>{{ measure.compliance_percentage|percentage }}</td>
+            </tr>
+        </table>
+        
+        {% if measure.controls %}
+        <h4>Kontrole (prikazano {{ measure.controls[:5]|length }} od {{ measure.controls|length }}, poredano po ocjeni):</h4>
+        <ul>
+            {% for control in measure.controls[:5] %}
+            <li>{{ control.control_name }} - Ocjena: {{ control.average_score|number(1) }}/5.0
+                {% if control.is_mandatory %}<span style="color: red;">(obvezna)</span>{% endif %}
+            </li>
+            {% endfor %}
+            {% if measure.controls|length > 5 %}
+            <li><em>... i {{ measure.controls|length - 5 }} dodatnih kontrola</em></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+        
+        {% if measure.ai_recommendation %}
+        <div class="ai-block">
+            <h5 style="margin: 0 0 5px 0;">Sažetak AI preporuka za mjeru <span class="ai-badge">AI</span></h5>
+            <p style="margin: 0;">{{ measure.ai_recommendation|replace('\n', '<br>')|safe }}</p>
+        </div>
+        {% endif %}
+
+        {% set control_ai = measure.controls | selectattr('ai_recommendation') | list %}
+        {% if control_ai and include_recommendations %}
+        <div class="ai-block">
+            <h5 style="margin: 0 0 5px 0;">AI preporuke po kontrolama ({{ control_ai|length }}) <span class="ai-badge">AI</span></h5>
+            {% for c in control_ai[:5] %}
+            <div class="ai-control">
+                <span class="code">{{ c.control_code or c.control_name }}</span>
+                <div>{{ c.ai_recommendation|replace('\n', '<br>')|safe }}</div>
+            </div>
+            {% endfor %}
+            {% if control_ai|length > 5 %}
+            <div><em>... i {{ control_ai|length - 5 }} dodatnih kontrola s preporukama</em></div>
+            {% endif %}
+        </div>
+        {% elif measure.ai_control_recommendations %}
+        <div class="ai-block">
+            <h5 style="margin: 0 0 5px 0;">AI preporuke po kontrolama (sažetak) <span class="ai-badge">AI</span></h5>
+            {% for item in measure.ai_control_recommendations[:5] %}
+            <div class="ai-control">
+                <span class="code">{{ item.control_code or item.control_name }}</span>
+                <div>{{ item.recommendation|replace('\n', '<br>')|safe }}</div>
+            </div>
+            {% endfor %}
+            {% if measure.ai_control_recommendations|length > 5 %}
+            <div><em>... i {{ measure.ai_control_recommendations|length - 5 }} dodatnih kontrola s preporukama</em></div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+    {% endif %}
+    
+    {% if gap_analysis and gap_analysis.gaps %}
+    <div class="page-break"></div>
+    
+    <h2>4. Analiza nedostataka</h2>
+    
+    <p>Identificirani su sljedeći ključni nedostaci koji zahtijevaju pažnju:</p>
+    
+    {% for gap in gap_analysis.gaps[:10] %}
+    <div class="gap-item">
+        <div class="gap-priority">Prioritet: {{ gap.priority }}</div>
+        <p><strong>{{ gap.control_name }}</strong></p>
+        <p>Trenutna ocjena: {{ gap.current_score|number(1) }}/5.0 | 
+           Ciljna ocjena: {{ gap.target_score|number(1) }}/5.0</p>
+        {% if gap.recommendation %}
+        <p><em>Preporuka: {{ gap.recommendation }}</em></p>
+        {% endif %}
+    </div>
+    {% endfor %}
+    
+    {% if gap_analysis.gaps|length > 10 %}
+    <p><em>Napomena: Prikazano je prvih 10 nedostataka. Ukupno identificirano: {{ gap_analysis.gaps|length }}</em></p>
+    {% endif %}
+    {% endif %}
+    
+    {% if include_recommendations %}
+    <div class="page-break"></div>
+    
+    <h2>5. Preporuke za poboljšanje</h2>
+    
+    <p>Na temelju provedene analize, preporučujemo sljedeće korake za poboljšanje kibernetičke sigurnosti:</p>
+    
+    {% if roadmap and roadmap.phases %}
+        {% for phase in roadmap.phases %}
+        <div class="recommendation">
+            <h4 class="recommendation-title">{{ phase.name }} ({{ phase.duration }})</h4>
+            <p><em>{{ phase.description }}</em></p>
+            {% set items = phase.items %}
+            {% if items is callable %}
+              {% set items = items() %}
+            {% endif %}
+            {% set items = items | list %}
+            <ul>
+                {% for item in items %}
+                {% if loop.index <= 5 %}
+                <li>
+                    <strong>{{ item.control_name }}</strong>
+                    {% if item.recommendation %}
+                    <br><span style="margin-left: 20px;">{{ item.recommendation }}</span>
+                    {% endif %}
+                    {% if item.is_mandatory %}
+                    <span style="color: red;"> (obvezna)</span>
+                    {% endif %}
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% if items|length > 5 %}
+                <li><em>... i {{ items|length - 5 }} dodatnih preporuka</em></li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endfor %}
+    {% else %}
+        <!-- Fallback to static recommendations if no roadmap data -->
+        <div class="recommendation">
+            <h4 class="recommendation-title">1. Kratkoročne mjere (0-3 mjeseca)</h4>
+            <ul>
+                <li>Ažuriranje postojećih sigurnosnih politika</li>
+                <li>Provedba obuke zaposlenika o kibernetičkoj sigurnosti</li>
+                <li>Pregled i ažuriranje postupaka za upravljanje incidentima</li>
+            </ul>
+        </div>
+        
+        <div class="recommendation">
+            <h4 class="recommendation-title">2. Srednjoročne mjere (3-6 mjeseci)</h4>
+            <ul>
+                <li>Implementacija nedostajućih tehničkih kontrola</li>
+                <li>Uspostava sustava za kontinuirano praćenje sigurnosti</li>
+                <li>Provedba penetracijskih testova</li>
+            </ul>
+        </div>
+        
+        <div class="recommendation">
+            <h4 class="recommendation-title">3. Dugoročne mjere (6-12 mjeseci)</h4>
+            <ul>
+                <li>Uspostava SOC-a ili angažiranje vanjskog pružatelja</li>
+                <li>Implementacija naprednih sigurnosnih rješenja</li>
+                <li>Certificiranje prema ISO 27001 standardu</li>
+            </ul>
+        </div>
+    {% endif %}
+    {% endif %}
+    
+    <div class="page-break"></div>
+    
+    <h2>6. Zaključak</h2>
+    
+    <p>Samoprocjena kibernetičke sigurnosti provedena je u skladu sa zakonskim zahtjevima i najboljim praksama. 
+    Organizacija {{ organization.name }} pokazuje {{ compliance_level|lower }} sa ukupnim postotkom sukladnosti 
+    od {{ assessment.compliance_percentage|percentage }}.</p>
+    
+    <p>Preporučuje se redovito ažuriranje samoprocjene (minimalno jednom godišnje) te kontinuirano praćenje 
+    napretka u implementaciji preporučenih mjera.</p>
+    
+    <div class="signature-block">
+        <p><strong>Izvještaj pripremio:</strong></p>
+        <div class="signature-line"></div>
+        <p class="signature-label">_____________________</p>
+        <p class="signature-label">Tim za kibernetičku sigurnost</p>
+        
+        <p style="margin-top: 2em;"><strong>Datum:</strong> {{ generation_date|datetime('%d.%m.%Y') }}</p>
+    </div>
+    
+    {% include 'base/footer.html' %}
+</body>
+</html>

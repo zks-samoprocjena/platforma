@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Izvještaj o samoprocjeni - {{ organization.name }}</title>
+    <link rel="stylesheet" href="../base/styles.css">
+</head>
+<body>
+    {% include 'base/header.html' %}
+
+    <!-- Cover Page -->
+    <div class="no-break" style="margin-top: 40px;">
+        <h1>IZVJEŠTAJ O SAMOPROCJENI KIBERNETIČKE SIGURNOSTI</h1>
+        <p><strong>Organizacija:</strong> {{ organization.name }}</p>
+        <p><strong>Datum generiranja:</strong> {{ generation_date|datetime('%d.%m.%Y') }}</p>
+        <p><strong>Razina sigurnosti:</strong> {{ assessment.security_level|upper }}</p>
+        <div class="kpi-grid" style="margin-top: 16px;">
+            <div class="kpi-tile">
+                <div class="kpi-value">{{ assessment.compliance_percentage|percentage }}</div>
+                <div class="kpi-label">Ukupna sukladnost</div>
+            </div>
+            <div class="kpi-tile">
+                <div class="kpi-value">{{ results.overall.total_score|number(2) if results and results.overall else '—' }}</div>
+                <div class="kpi-label">Prosječna ocjena</div>
+            </div>
+            <div class="kpi-tile">
+                <div class="kpi-value">{{ results.total_measures if results else '—' }}</div>
+                <div class="kpi-label">Ukupno mjera</div>
+            </div>
+            <div class="kpi-tile">
+                <div class="kpi-value">{{ gap_analysis.total_gaps if gap_analysis else 0 }}</div>
+                <div class="kpi-label">Identificirani nedostaci</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table of Contents (anchors, without page numbers) -->
+    <div class="page-break"></div>
+    <h2>Sadržaj</h2>
+    <ol>
+        <li><a href="#exec-summary">Izvršni sažetak</a></li>
+        <li><a href="#results-measures">Rezultati po mjerama</a></li>
+        <li><a href="#gap-analysis">Analiza nedostataka</a></li>
+        <li><a href="#roadmap">Preporuke i plan poboljšanja</a></li>
+        <li><a href="#appendix">Dodatak: Detaljne AI preporuke</a></li>
+    </ol>
+
+    <!-- Executive Summary -->
+    <div class="page-break"></div>
+    <h2 id="exec-summary">Izvršni sažetak</h2>
+    {% if ai_executive_summary %}
+    <div class="ai-block">
+        <p>{{ ai_executive_summary|replace('\n', '<br>')|safe }}</p>
+    </div>
+    {% else %}
+    <p>Ovaj izvještaj prikazuje stanje kibernetičke sigurnosti organizacije s naglaskom na ključne rezultate, nedostatke i preporuke za poboljšanje.</p>
+    {% endif %}
+
+    <!-- Results by Measures -->
+    <div class="page-break"></div>
+    <h2 id="results-measures">Rezultati po mjerama</h2>
+    {% if results and results.measures %}
+        {% for measure in results.measures %}
+        <div class="measure-section" style="margin-bottom: 18px;">
+            <h3 style="display: flex; align-items: center; justify-content: space-between;">
+                <span>{{ measure.code }} - {{ measure.name }}</span>
+                {% set status = 'red' %}
+                {% if measure.compliance_percentage >= 80 %}{% set status = 'green' %}
+                {% elif measure.compliance_percentage >= 60 %}{% set status = 'orange' %}{% endif %}
+                <span class="pill pill-{{ status }}">
+                    {% if status == 'green' %}SUKLADNO{% elif status == 'orange' %}DJELOMIČNO{% else %}NESUKLADNO{% endif %}
+                </span>
+            </h3>
+
+            <div class="kpi-grid kpi-grid-4" style="margin-top: 6px;">
+                <div class="kpi-tile small"><div class="kpi-value">{{ measure.documentation_score|number(2) }}</div><div class="kpi-label">Dokumentiranost</div></div>
+                <div class="kpi-tile small"><div class="kpi-value">{{ measure.implementation_score|number(2) }}</div><div class="kpi-label">Implementacija</div></div>
+                <div class="kpi-tile small"><div class="kpi-value">{{ measure.total_score|number(2) }}</div><div class="kpi-label">Ukupna ocjena</div></div>
+                <div class="kpi-tile small"><div class="kpi-value">{{ measure.compliance_percentage|percentage }}</div><div class="kpi-label">Sukladnost</div></div>
+            </div>
+
+            {% if measure.controls %}
+            <table class="table-compact" style="margin-top: 8px;">
+                <thead>
+                    <tr>
+                        <th style="width: 16%">Kontrola</th>
+                        <th style="width: 44%">Naziv</th>
+                        <th style="width: 15%">Dok.</th>
+                        <th style="width: 15%">Impl.</th>
+                        <th style="width: 10%">Uk.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in measure.controls[:3] %}
+                    <tr>
+                        <td><code>{{ c.control_code or c.code }}</code></td>
+                        <td>{{ c.control_name or c.name }}</td>
+                        <td>{{ c.documentation_score|number(1) }}</td>
+                        <td>{{ c.implementation_score|number(1) }}</td>
+                        <td><strong>{{ c.average_score|number(1) }}</strong></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+
+            {% if measure.ai_recommendation %}
+            <div class="ai-block">
+                <h5 style="margin: 0 0 5px 0;">Sažetak AI preporuka <span class="ai-badge">AI</span></h5>
+                <div>{{ measure.ai_recommendation|replace('\n', '<br>')|safe }}</div>
+            </div>
+            {% endif %}
+
+            {% set control_ai = measure.controls | selectattr('ai_recommendation') | list %}
+            {% if control_ai %}
+            <div class="ai-block">
+                <h5 style="margin: 0 0 5px 0;">AI preporuke po kontrolama <span class="ai-badge">AI</span></h5>
+                {% for c in control_ai[:5] %}
+                <div class="ai-control">
+                    <span class="code">{{ c.control_code or c.control_name }}</span>
+                    <div>{{ c.ai_recommendation|replace('\n', '<br>')|safe }}</div>
+                </div>
+                {% endfor %}
+                {% if control_ai|length > 5 %}
+                <div><em>... i {{ control_ai|length - 5 }} dodatnih kontrola s preporukama</em></div>
+                {% endif %}
+            </div>
+            {% elif measure.ai_control_recommendations %}
+            <div class="ai-block">
+                <h5 style="margin: 0 0 5px 0;">AI preporuke po kontrolama (sažetak) <span class="ai-badge">AI</span></h5>
+                {% for item in measure.ai_control_recommendations[:5] %}
+                <div class="ai-control">
+                    <span class="code">{{ item.control_code or item.control_name }}</span>
+                    <div>{{ item.recommendation|replace('\n', '<br>')|safe }}</div>
+                </div>
+                {% endfor %}
+                {% if measure.ai_control_recommendations|length > 5 %}
+                <div><em>... i {{ measure.ai_control_recommendations|length - 5 }} dodatnih kontrola s preporukama</em></div>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <p><em>Nema dostupnih rezultata po mjerama.</em></p>
+    {% endif %}
+
+    <!-- Gap Analysis -->
+    <div class="page-break"></div>
+    <h2 id="gap-analysis">Analiza nedostataka</h2>
+    {% if gap_analysis and gap_analysis.gaps %}
+    <table class="table-compact">
+        <thead>
+            <tr>
+                <th style="width: 12%">Prioritet</th>
+                <th style="width: 44%">Kontrola</th>
+                <th style="width: 12%">Trenutno</th>
+                <th style="width: 12%">Cilj</th>
+                <th style="width: 20%">Napomena</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for gap in gap_analysis.gaps %}
+            <tr>
+                <td>
+                    {% set p = (gap.priority or '')|lower %}
+                    <span class="pill {% if p in ['critical','kritičan'] %}pill-red{% elif p in ['high','visok'] %}pill-orange{% else %}pill-gray{% endif %}">
+                        {{ gap.priority }}
+                    </span>
+                </td>
+                <td>{{ gap.control_name }}</td>
+                <td>{{ gap.current_score|number(1) }}</td>
+                <td>{{ gap.target_score|number(1) }}</td>
+                <td>{{ gap.recommendation or '' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p><em>Nema identificiranih nedostataka.</em></p>
+    {% endif %}
+
+    <!-- Roadmap -->
+    <div class="page-break"></div>
+    <h2 id="roadmap">Preporuke i plan poboljšanja</h2>
+    {% if roadmap and roadmap.phases %}
+        {% for phase in roadmap.phases %}
+        <h3 style="margin-top: 8px;">{{ phase.name }} ({{ phase.duration }})</h3>
+        <p><em>{{ phase.description }}</em></p>
+        {% set items = phase.items %}
+        {% if items is callable %}{% set items = items() %}{% endif %}
+        {% set items = items | list %}
+        {% if items and items|length > 0 %}
+        <table class="table-compact">
+            <thead>
+                <tr>
+                    <th style="width: 18%">Kontrola</th>
+                    <th style="width: 52%">Preporuka</th>
+                    <th style="width: 15%">Prioritet</th>
+                    <th style="width: 15%">Vremenski okvir</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td><code>{{ item.control_name }}</code></td>
+                    <td>{{ item.recommendation }}</td>
+                    <td>
+                        {% set pr = (item.priority or '')|lower %}
+                        <span class="pill {% if pr == 'critical' %}pill-red{% elif pr == 'high' %}pill-orange{% elif pr == 'medium' %}pill-yellow{% else %}pill-gray{% endif %}">
+                            {{ item.priority|default('')|upper }}
+                        </span>
+                    </td>
+                    <td>{{ phase.duration }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p><em>Nema preporuka za prikaz u ovoj fazi.</em></p>
+        {% endif %}
+        {% endfor %}
+    {% else %}
+    <p><em>Plan poboljšanja nije dostupan.</em></p>
+    {% endif %}
+
+    <!-- Appendix: Full AI content -->
+    <div class="page-break"></div>
+    <h2 id="appendix">Dodatak: Detaljne AI preporuke</h2>
+    {% if has_ai_details and results and results.measures %}
+        {% for measure in results.measures %}
+            {% set control_ai_all = measure.controls | selectattr('ai_recommendation') | list %}
+            {% if control_ai_all %}
+            <h3>{{ measure.code }} - {{ measure.name }}</h3>
+            {% for c in control_ai_all %}
+            <div class="ai-block">
+                <div class="ai-control">
+                    <span class="code">{{ c.control_code or c.control_name }}</span>
+                    <div>{{ c.ai_recommendation|replace('\n', '<br>')|safe }}</div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+    <p><em>Nema AI detalja za prikaz.</em></p>
+    {% endif %}
+
+    {% include 'base/footer.html' %}
+</body>
+</html> 

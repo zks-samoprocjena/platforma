@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Akcijski plan za poboljšanja - {{ organization.name }}</title>
+    <link rel="stylesheet" href="../base/styles.css">
+</head>
+<body>
+    {% include 'base/header.html' %}
+    
+    <h1>AKCIJSKI PLAN ZA POBOLJŠANJE KIBERNETIČKE SIGURNOSTI</h1>
+    
+    <div class="no-break">
+        <h2>1. Uvod</h2>
+        
+        <p>Ovaj akcijski plan izrađen je na temelju samoprocjene kibernetičke sigurnosti provedene 
+        {{ assessment.completed_at|datetime('%d.%m.%Y') if assessment.completed_at else assessment.created_at|datetime('%d.%m.%Y') }}.
+        Plan definira konkretne mjere, rokove i odgovornosti za otklanjanje identificiranih nedostataka.</p>
+        
+        <table>
+            <tr>
+                <td width="40%"><strong>Organizacija:</strong></td>
+                <td>{{ organization.name }}</td>
+            </tr>
+            <tr>
+                <td><strong>Trenutna razina sukladnosti:</strong></td>
+                <td>{{ assessment.compliance_percentage|percentage }}</td>
+            </tr>
+            <tr>
+                <td><strong>Ciljna razina sukladnosti:</strong></td>
+                <td>{{ target_compliance|default('90%') }}</td>
+            </tr>
+            <tr>
+                <td><strong>Planirani rok postizanja:</strong></td>
+                <td>{{ (generation_date + timedelta(days=365))|datetime('%d.%m.%Y') }}</td>
+            </tr>
+            <tr>
+                <td><strong>Ukupan broj aktivnosti:</strong></td>
+                <td>{{ gap_analysis.gaps|length if gap_analysis else 'N/A' }}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <h2>2. Strateški ciljevi</h2>
+    
+    <ol>
+        <li><strong>Kratkoročni ciljevi (0-3 mjeseca):</strong>
+            <ul>
+                <li>Otklanjanje kritičnih sigurnosnih nedostataka</li>
+                <li>Ažuriranje sigurnosnih politika i procedura</li>
+                <li>Provedba hitnih tehničkih mjera</li>
+            </ul>
+        </li>
+        <li><strong>Srednjoročni ciljevi (3-6 mjeseci):</strong>
+            <ul>
+                <li>Implementacija naprednih sigurnosnih kontrola</li>
+                <li>Uspostava kontinuiranog monitoringa</li>
+                <li>Poboljšanje razine dokumentiranosti</li>
+            </ul>
+        </li>
+        <li><strong>Dugoročni ciljevi (6-12 mjeseci):</strong>
+            <ul>
+                <li>Postizanje potpune sukladnosti sa ZKS/NIS2</li>
+                <li>Uspostava zrelog sustava upravljanja KS</li>
+                <li>Priprema za vanjsku certifikaciju</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <div class="page-break"></div>
+    
+    <h2>3. Prioritizirane aktivnosti</h2>
+    
+    {% if ai_action_items %}
+    <div class="recommendation">
+        <h3>AI Preporučene akcije</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="35%">Akcija</th>
+                    <th width="25%">Opis</th>
+                    <th width="10%">Prioritet</th>
+                    <th width="15%">Trajanje</th>
+                    <th width="10%">Kriterij uspjeha</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in ai_action_items[:10] %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td><strong>{{ item.title }}</strong></td>
+                    <td>{{ item.description[:100] }}...</td>
+                    <td>
+                        <span style="color: {% if item.priority in ['KRITIČAN', 'CRITICAL'] %}red{% elif item.priority in ['VISOK', 'HIGH'] %}orange{% else %}green{% endif %};">
+                            {{ item.priority }}
+                        </span>
+                    </td>
+                    <td>{{ item.timeline_weeks }} tjedana</td>
+                    <td>{{ item.success_criteria|default('Potpuna implementacija') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+    
+    {% if roadmap and roadmap.phases %}
+        {% for phase in roadmap.phases %}
+        <div class="measure-section">
+            <h3>{{ phase.name }} ({{ phase.duration }})</h3>
+            
+            {% if phase.measures %}
+            <table>
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="35%">Aktivnost</th>
+                        <th width="15%">Prioritet</th>
+                        <th width="15%">Rok</th>
+                        <th width="20%">Odgovorna osoba</th>
+                        <th width="10%">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for measure in phase.measures %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ measure.name }}</td>
+                        <td>
+                            <span style="color: {% if measure.priority == 'KRITIČAN' %}red{% elif measure.priority == 'VISOK' %}orange{% else %}green{% endif %};">
+                                {{ measure.priority }}
+                            </span>
+                        </td>
+                        <td>{{ measure.deadline|default((generation_date + timedelta(days=30*loop.index))|datetime('%d.%m.%Y')) }}</td>
+                        <td>{{ measure.responsible|default('_____________') }}</td>
+                        <td>☐</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% elif gap_analysis and gap_analysis.gaps %}
+        <h3>Aktivnosti po prioritetima</h3>
+        
+        <h4>🔴 Kritični prioritet</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="40%">Nedostatak/Aktivnost</th>
+                    <th width="10%">Trenutno</th>
+                    <th width="10%">Ciljano</th>
+                    <th width="20%">Rok</th>
+                    <th width="15%">Odgovorna osoba</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set critical_gaps = gap_analysis.gaps|selectattr("priority", "==", "KRITIČAN")|list %}
+                {% for gap in critical_gaps[:10] %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ gap.control_name }}</td>
+                    <td>{{ gap.current_score|number(1) }}/5</td>
+                    <td>{{ gap.target_score|number(1) }}/5</td>
+                    <td>{{ (generation_date + timedelta(days=30))|datetime('%d.%m.%Y') }}</td>
+                    <td>_____________</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <h4>🟠 Visoki prioritet</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="40%">Nedostatak/Aktivnost</th>
+                    <th width="10%">Trenutno</th>
+                    <th width="10%">Ciljano</th>
+                    <th width="20%">Rok</th>
+                    <th width="15%">Odgovorna osoba</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set high_gaps = gap_analysis.gaps|selectattr("priority", "==", "VISOK")|list %}
+                {% for gap in high_gaps[:10] %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ gap.control_name }}</td>
+                    <td>{{ gap.current_score|number(1) }}/5</td>
+                    <td>{{ gap.target_score|number(1) }}/5</td>
+                    <td>{{ (generation_date + timedelta(days=90))|datetime('%d.%m.%Y') }}</td>
+                    <td>_____________</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    
+    <div class="page-break"></div>
+    
+    <h2>4. Resursi i proračun</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Kategorija resursa</th>
+                <th>Opis</th>
+                <th>Procjena troška</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ljudski resursi</td>
+                <td>Interni tim + vanjski konzultanti</td>
+                <td>{{ budget.human_resources|default('_____________') }}</td>
+            </tr>
+            <tr>
+                <td>Tehnološka rješenja</td>
+                <td>Softver, hardver, licence</td>
+                <td>{{ budget.technology|default('_____________') }}</td>
+            </tr>
+            <tr>
+                <td>Edukacija i trening</td>
+                <td>Obuke, certifikacije, materijali</td>
+                <td>{{ budget.training|default('_____________') }}</td>
+            </tr>
+            <tr>
+                <td>Vanjski audit</td>
+                <td>Penetracijski test, certifikacija</td>
+                <td>{{ budget.audit|default('_____________') }}</td>
+            </tr>
+            <tr>
+                <td><strong>UKUPNO</strong></td>
+                <td></td>
+                <td><strong>{{ budget.total|default('_____________') }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>5. Praćenje napretka</h2>
+    
+    <h3>5.1. Ključni pokazatelji uspješnosti (KPI)</h3>
+    <ul>
+        <li>Postotak implementiranih mjera: cilj 100% do kraja perioda</li>
+        <li>Razina sukladnosti: cilj {{ target_compliance|default('90%') }}</li>
+        <li>Broj riješenih kritičnih nedostataka: cilj 100% u prvih 30 dana</li>
+        <li>Broj provedenih obuka: minimalno 1 mjesečno</li>
+    </ul>
+    
+    <h3>5.2. Izvještavanje</h3>
+    <ul>
+        <li><strong>Tjedni sastanci:</strong> Operativni tim za KS</li>
+        <li><strong>Mjesečni izvještaji:</strong> Upravi organizacije</li>
+        <li><strong>Kvartalni pregled:</strong> Revizija akcijskog plana</li>
+        <li><strong>Godišnja evaluacija:</strong> Ponovna samoprocjena</li>
+    </ul>
+    
+    <h2>6. Rizici i mjere ublažavanja</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Rizik</th>
+                <th>Vjerojatnost</th>
+                <th>Utjecaj</th>
+                <th>Mjere ublažavanja</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nedostatak resursa</td>
+                <td>Srednja</td>
+                <td>Visok</td>
+                <td>Osigurati potporu uprave, fazna implementacija</td>
+            </tr>
+            <tr>
+                <td>Otpor zaposlenika</td>
+                <td>Visoka</td>
+                <td>Srednji</td>
+                <td>Komunikacijska kampanja, motivacijski program</td>
+            </tr>
+            <tr>
+                <td>Tehnički izazovi</td>
+                <td>Srednja</td>
+                <td>Srednji</td>
+                <td>Angažiranje vanjskih stručnjaka</td>
+            </tr>
+            <tr>
+                <td>Promjena regulative</td>
+                <td>Niska</td>
+                <td>Visok</td>
+                <td>Kontinuirano praćenje, fleksibilnost plana</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="page-break"></div>
+    
+    <h2>7. Zaključak</h2>
+    
+    <p>Ovaj akcijski plan predstavlja sveobuhvatan pristup poboljšanju kibernetičke sigurnosti organizacije 
+    {{ organization.name }}. Implementacijom definiranih mjera očekuje se postizanje potpune sukladnosti 
+    sa zahtjevima ZKS/NIS2 direktive.</p>
+    
+    <p>Uspjeh plana ovisi o:</p>
+    <ul>
+        <li>Potpori i angažmanu uprave</li>
+        <li>Adekvatnim resursima</li>
+        <li>Aktivnoj suradnji svih dionika</li>
+        <li>Kontinuiranom praćenju i prilagođavanju</li>
+    </ul>
+    
+    <p>Plan će se revidirati kvartalno kako bi se osigurala njegova relevantnost i učinkovitost.</p>
+    
+    <div class="signature-block">
+        <table width="100%">
+            <tr>
+                <td width="50%">
+                    <p><strong>Izradio:</strong></p>
+                    <div class="signature-line"></div>
+                    <p class="signature-label">_____________________</p>
+                    <p class="signature-label">Voditelj tima za KS</p>
+                </td>
+                <td width="50%">
+                    <p><strong>Odobrio:</strong></p>
+                    <div class="signature-line"></div>
+                    <p class="signature-label">_____________________</p>
+                    <p class="signature-label">Direktor/Član uprave</p>
+                </td>
+            </tr>
+        </table>
+        
+        <p style="margin-top: 2em; text-align: center;">
+            <strong>Datum:</strong> {{ generation_date|datetime('%d.%m.%Y') }}
+        </p>
+    </div>
+    
+    {% include 'base/footer.html' %}
+</body>
+</html>

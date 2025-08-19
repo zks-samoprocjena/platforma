@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Interni zapisnik o samoprocjeni - {{ organization.name }}</title>
+    <link rel="stylesheet" href="../base/styles.css">
+</head>
+<body>
+    {% include 'base/header.html' %}
+    
+    <h1>INTERNI ZAPISNIK O SAMOPROCJENI KIBERNETIČKE SIGURNOSTI</h1>
+    
+    <div class="no-break">
+        <table>
+            <tr>
+                <td width="30%"><strong>Broj zapisnika:</strong></td>
+                <td>{{ record_number|default('ZAP-' + assessment.id[:8] + '/' + generation_date|datetime('%Y')) }}</td>
+            </tr>
+            <tr>
+                <td><strong>Datum održavanja:</strong></td>
+                <td>{{ meeting_date|default(assessment.started_at|datetime('%d.%m.%Y')) if assessment.started_at else generation_date|datetime('%d.%m.%Y') }}</td>
+            </tr>
+            <tr>
+                <td><strong>Vrijeme:</strong></td>
+                <td>{{ meeting_time|default('09:00 - 12:00') }}</td>
+            </tr>
+            <tr>
+                <td><strong>Mjesto održavanja:</strong></td>
+                <td>{{ meeting_location|default(organization.name + ', sjedište') }}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <h2>1. Sudionici</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th width="5%">R.br.</th>
+                <th width="35%">Ime i prezime</th>
+                <th width="30%">Funkcija/Uloga</th>
+                <th width="30%">Potpis</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if participants %}
+                {% for participant in participants %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ participant.name }}</td>
+                    <td>{{ participant.role }}</td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td>1.</td>
+                    <td>_____________________</td>
+                    <td>Voditelj tima za KS</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>_____________________</td>
+                    <td>IT administrator</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>_____________________</td>
+                    <td>Pravni savjetnik</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td>_____________________</td>
+                    <td>Predstavnik uprave</td>
+                    <td></td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    
+    <h2>2. Dnevni red</h2>
+    
+    <ol>
+        <li>Otvaranje sastanka i uvodna riječ</li>
+        <li>Pregled zakonskih zahtjeva (ZKS/NIS2)</li>
+        <li>Metodologija samoprocjene</li>
+        <li>Provedba samoprocjene po mjerama</li>
+        <li>Pregled rezultata i identifikacija nedostataka</li>
+        <li>Donošenje zaključaka i prijedloga mjera</li>
+        <li>Određivanje rokova i odgovornih osoba</li>
+        <li>Razno</li>
+    </ol>
+    
+    <div class="page-break"></div>
+    
+    <h2>3. Tijek sastanka</h2>
+    
+    <h3>3.1. Otvaranje sastanka</h3>
+    <p>Sastanak je otvoren u {{ meeting_time|default('09:00') }} sati. Voditelj tima za kibernetičku sigurnost pozdravio je prisutne i predstavio dnevni red. Utvrđen je kvorum za donošenje odluka.</p>
+    
+    <h3>3.2. Pregled zakonskih zahtjeva</h3>
+    <p>Predstavljeni su ključni zahtjevi Zakona o kibernetičkoj sigurnosti i NIS2 direktive koji se odnose na organizaciju. Posebno je naglašena obveza provedbe samoprocjene za organizacije na {{ assessment.security_level }} razini sigurnosti.</p>
+    
+    <h3>3.3. Metodologija samoprocjene</h3>
+    <p>Objašnjena je metodologija samoprocjene koja uključuje:</p>
+    <ul>
+        <li>Pregled {{ results.total_measures if results else '13' }} mjera kibernetičke sigurnosti</li>
+        <li>Ocjenjivanje razine dokumentiranosti (1-5)</li>
+        <li>Ocjenjivanje razine implementacije (1-5)</li>
+        <li>Identifikaciju nedostataka i prijedlog poboljšanja</li>
+    </ul>
+    
+    <h3>3.4. Rezultati samoprocjene</h3>
+    
+    <div class="measure-section">
+        <p><strong>Ukupni rezultati:</strong></p>
+        <ul>
+            <li>Prosječna ocjena: {{ assessment.total_score|number(2) }}/5.0</li>
+            <li>Postotak sukladnosti: {{ assessment.compliance_percentage|percentage }}</li>
+            <li>Status sukladnosti: <span class="compliance-status {{ 'compliant' if assessment.compliance_percentage >= 80 else 'partial' }}">{{ compliance_level }}</span></li>
+        </ul>
+    </div>
+    
+    {% if gap_analysis and gap_analysis.gaps %}
+    <h3>3.5. Identificirani kritični nedostaci</h3>
+    <ol>
+        {% for gap in gap_analysis.gaps[:5] if gap.priority in ['KRITIČAN', 'CRITICAL'] %}
+        <li>
+            <strong>{{ gap.control_name }}</strong>
+            <ul>
+                <li>Trenutna ocjena: {{ gap.current_score|number(1) }}/5.0</li>
+                <li>Ciljna ocjena: {{ gap.target_score|number(1) }}/5.0</li>
+                {% if gap.ai_narrative %}
+                <li>Analiza: <em>{{ gap.ai_narrative }}</em></li>
+                {% else %}
+                <li>Razlog: {{ gap.reason|default('Nedovoljna implementacija') }}</li>
+                {% endif %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    
+    <div class="page-break"></div>
+    
+    <h2>4. Zaključci i odluke</h2>
+    
+    <p>Na temelju provedene samoprocjene, doneseni su sljedeći zaključci:</p>
+    
+    <ol>
+        <li><strong>Prihvaća se</strong> izvještaj o samoprocjeni kibernetičke sigurnosti s ukupnom ocjenom {{ assessment.total_score|number(2) }}/5.0.</li>
+        
+        <li><strong>Utvrđuje se</strong> da organizacija {{ organization.name }} ima {{ compliance_level|lower }} razinu sukladnosti sa zahtjevima ZKS/NIS2.</li>
+        
+        <li><strong>Nalaže se</strong> izrada akcijskog plana za otklanjanje identificiranih nedostataka u roku od 15 dana.</li>
+        
+        <li><strong>Imenuje se</strong> tim za implementaciju poboljšanja u sljedećem sastavu:
+            <ul>
+                <li>Voditelj: _____________________</li>
+                <li>Članovi: prema priloženom popisu</li>
+            </ul>
+        </li>
+        
+        <li><strong>Određuju se</strong> sljedeći prioriteti:
+            <ul>
+                <li>Hitno (0-30 dana): Kritični nedostaci</li>
+                <li>Kratkoročno (1-3 mjeseca): Mjere visokog prioriteta</li>
+                <li>Srednjoročno (3-6 mjeseci): Ostale mjere</li>
+            </ul>
+        </li>
+        
+        <li><strong>Zahtijeva se</strong> izvještavanje o napretku na mjesečnoj razini.</li>
+    </ol>
+    
+    <h2>5. Zaduženja</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th width="5%">R.br.</th>
+                <th width="45%">Zadatak</th>
+                <th width="25%">Odgovorna osoba</th>
+                <th width="25%">Rok</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1.</td>
+                <td>Izrada detaljnog akcijskog plana</td>
+                <td>Voditelj tima za KS</td>
+                <td>{{ (generation_date + timedelta(days=15))|datetime('%d.%m.%Y') }}</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>Ažuriranje sigurnosnih politika</td>
+                <td>Pravni savjetnik</td>
+                <td>{{ (generation_date + timedelta(days=30))|datetime('%d.%m.%Y') }}</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>Provedba tehničkih mjera</td>
+                <td>IT administrator</td>
+                <td>{{ (generation_date + timedelta(days=90))|datetime('%d.%m.%Y') }}</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>Organizacija obuke zaposlenika</td>
+                <td>HR odjel</td>
+                <td>{{ (generation_date + timedelta(days=60))|datetime('%d.%m.%Y') }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>6. Završne napomene</h2>
+    
+    <p>Sastanak je završen u {{ meeting_end_time|default('12:00') }} sati. Svi prisutni su suglasni s donesenim zaključcima i preuzimaju odgovornost za dodijeljene zadatke.</p>
+    
+    <p>Sljedeći sastanak zakazan je za {{ (generation_date + timedelta(days=30))|datetime('%d.%m.%Y') }} s ciljem pregleda napretka.</p>
+    
+    <div class="signature-block">
+        <table width="100%">
+            <tr>
+                <td width="50%">
+                    <p><strong>Zapisnik sastavio:</strong></p>
+                    <div class="signature-line"></div>
+                    <p class="signature-label">_____________________</p>
+                    <p class="signature-label">Tajnik/Zapisničar</p>
+                </td>
+                <td width="50%">
+                    <p><strong>Zapisnik odobrio:</strong></p>
+                    <div class="signature-line"></div>
+                    <p class="signature-label">_____________________</p>
+                    <p class="signature-label">Voditelj tima za KS</p>
+                </td>
+            </tr>
+        </table>
+        
+        <p style="margin-top: 2em; text-align: center;">
+            <strong>Datum:</strong> {{ generation_date|datetime('%d.%m.%Y') }}
+        </p>
+    </div>
+    
+    {% include 'base/footer.html' %}
+</body>
+</html>

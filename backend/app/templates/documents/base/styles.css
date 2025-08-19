@@ -1,0 +1,359 @@
+/* Base styles for compliance documents */
+
+/* Page setup */
+@page {
+    size: A4;
+    margin: 2.5cm 2cm 2cm 2cm;
+    
+    @top-center {
+        content: element(header);
+    }
+    
+    @bottom-center {
+        content: element(footer);
+        font-size: 10pt;
+    }
+    
+    @bottom-right {
+        content: counter(page);
+        font-size: 10pt;
+        color: #666;
+    }
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #333;
+    background: white;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    page-break-after: avoid;
+}
+
+h1 {
+    font-size: 18pt;
+    margin-bottom: 1em;
+    text-align: center;
+    color: #1a1a1a;
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 14pt;
+    margin-top: 1.5em;
+    color: #0066cc;
+}
+
+h3 {
+    font-size: 12pt;
+    margin-top: 1em;
+    color: #333;
+}
+
+/* Paragraphs and text */
+p {
+    margin-bottom: 0.75em;
+    text-align: justify;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+/* Lists */
+ul, ol {
+    margin-left: 2em;
+    margin-bottom: 0.75em;
+}
+
+li {
+    margin-bottom: 0.25em;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    page-break-inside: avoid;
+}
+
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #0066cc;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Document header */
+.document-header {
+    position: running(header);
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+}
+
+.organization-info {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.organization-name {
+    font-size: 16pt;
+    font-weight: bold;
+    color: #0066cc;
+}
+
+.organization-details {
+    font-size: 10pt;
+    color: #666;
+}
+
+/* Document footer */
+.document-footer {
+    position: running(footer);
+    text-align: center;
+    font-size: 9pt;
+    color: #666;
+    padding-top: 1em;
+    border-top: 1px solid #ccc;
+}
+
+/* Compliance specific styles */
+.compliance-status {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+.compliance-status.compliant {
+    background-color: #4caf50;
+    color: white;
+}
+
+.compliance-status.partial {
+    background-color: #ff9800;
+    color: white;
+}
+
+.compliance-status.non-compliant {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Score displays */
+.score-box {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: 2px solid #0066cc;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #f0f7ff;
+}
+
+.score-value {
+    font-size: 24pt;
+    font-weight: bold;
+    color: #0066cc;
+}
+
+.score-label {
+    font-size: 10pt;
+    color: #666;
+}
+
+/* Measure and control styles */
+.measure-section {
+    margin: 1.5em 0;
+    padding: 1em;
+    background-color: #f5f5f5;
+    border-left: 4px solid #0066cc;
+    page-break-inside: avoid;
+}
+
+.measure-title {
+    font-weight: bold;
+    color: #0066cc;
+    margin-bottom: 0.5em;
+}
+
+.control-item {
+    margin: 0.5em 0;
+    padding: 0.5em;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+/* Gap analysis styles */
+.gap-item {
+    margin: 0.75em 0;
+    padding: 0.75em;
+    border-left: 3px solid #ff9800;
+    background-color: #fff9f0;
+}
+
+.gap-priority {
+    font-weight: bold;
+    color: #ff6600;
+}
+
+/* Recommendation styles */
+.recommendation {
+    margin: 1em 0;
+    padding: 1em;
+    background-color: #e8f5e9;
+    border: 1px solid #4caf50;
+    border-radius: 4px;
+}
+
+.recommendation-title {
+    font-weight: bold;
+    color: #2e7d32;
+    margin-bottom: 0.5em;
+}
+
+/* AI-generated content styles */
+.ai-content {
+    background-color: #f3f4f6;
+    border-left: 4px solid #6366f1;
+    padding: 1em;
+    margin: 1em 0;
+    font-style: italic;
+}
+
+.ai-badge {
+    display: inline-block;
+    background-color: #6366f1;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+/* AI content styling */
+.ai-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  margin-left: 6px;
+  border-radius: 6px;
+  background-color: #e9d5ff; /* purple-100 */
+  color: #6b21a8; /* purple-800 */
+}
+.ai-block {
+  border-left: 4px solid #a855f7; /* purple-500 */
+  background-color: #faf5ff; /* purple-50 */
+  padding: 10px 12px;
+  margin-top: 8px;
+}
+.ai-control {
+  margin: 6px 0;
+}
+.ai-control .code {
+  font-weight: 600;
+  color: #4b5563;
+  margin-right: 6px;
+}
+
+/* Signature block */
+.signature-block {
+    margin-top: 3em;
+    page-break-inside: avoid;
+}
+
+.signature-line {
+    border-top: 1px solid #333;
+    width: 250px;
+    margin: 2em auto 0.5em;
+}
+
+.signature-label {
+    text-align: center;
+    font-size: 10pt;
+}
+
+/* Page breaks */
+.page-break {
+    page-break-after: always;
+}
+
+.no-break {
+    page-break-inside: avoid;
+}
+
+/* Print-specific adjustments */
+@media print {
+    body {
+        font-size: 10pt;
+    }
+    
+    h1 {
+        font-size: 16pt;
+    }
+    
+    h2 {
+        font-size: 13pt;
+    }
+    
+    h3 {
+        font-size: 11pt;
+    }
+}
+
+/* KPIs */
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.kpi-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.kpi-tile { background: #f5f5f5; padding: 10px; border-radius: 8px; text-align: center; }
+.kpi-tile.small .kpi-value { font-size: 1rem; }
+.kpi-value { font-size: 1.4rem; font-weight: 700; }
+.kpi-label { font-size: 0.8rem; color: #6b7280; }
+
+/* Pills */
+.pill { padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; color: #111827; }
+.pill-green { background: #d1fae5; color: #065f46; }
+.pill-orange { background: #ffedd5; color: #9a3412; }
+.pill-yellow { background: #fef9c3; color: #854d0e; }
+.pill-red { background: #fee2e2; color: #991b1b; }
+.pill-gray { background: #e5e7eb; color: #374151; }
+
+/* Tables */
+.table-compact { width: 100%; border-collapse: collapse; }
+.table-compact th, .table-compact td { border: 1px solid #e5e7eb; padding: 6px 8px; font-size: 0.85rem; }
+.table-compact thead { background: #f9fafb; }
+.table-compact tbody tr:nth-child(even) { background: #fafafa; }
+
+/* Header/Footer placeholders if needed */
+.header { display: flex; justify-content: space-between; align-items: center; }
+.footer { font-size: 0.75rem; color: #6b7280; text-align: center; margin-top: 10px; }

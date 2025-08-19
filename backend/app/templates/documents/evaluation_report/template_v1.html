@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluacijski izvještaj po mjerama - {{ organization.name }}</title>
+    <link rel="stylesheet" href="../base/styles.css">
+</head>
+<body>
+    {% include 'base/header.html' %}
+    
+    <h1>EVALUACIJSKI IZVJEŠTAJ PO MJERAMA KIBERNETIČKE SIGURNOSTI</h1>
+    
+    <div class="no-break">
+        <h2>Sažetak evaluacije</h2>
+        
+        <table>
+            <tr>
+                <td width="40%"><strong>Organizacija:</strong></td>
+                <td>{{ organization.name }}</td>
+            </tr>
+            <tr>
+                <td><strong>Razina sigurnosti:</strong></td>
+                <td>{{ assessment.security_level|upper }}</td>
+            </tr>
+            <tr>
+                <td><strong>Datum evaluacije:</strong></td>
+                <td>{{ assessment.completed_at|datetime('%d.%m.%Y') if assessment.completed_at else generation_date|datetime('%d.%m.%Y') }}</td>
+            </tr>
+            <tr>
+                <td><strong>Ukupan broj mjera:</strong></td>
+                <td>{{ results.total_measures if results else '13' }}</td>
+            </tr>
+            <tr>
+                <td><strong>Ukupan broj kontrola:</strong></td>
+                <td>{{ results.total_controls if results else 'N/A' }}</td>
+            </tr>
+        </table>
+        
+        <div class="score-box">
+            <div class="score-value">{{ assessment.total_score|number(2) }}/5.0</div>
+            <div class="score-label">Prosječna ocjena</div>
+        </div>
+        
+        <div class="score-box">
+            <div class="score-value">{{ assessment.compliance_percentage|percentage }}</div>
+            <div class="score-label">Ukupna sukladnost</div>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <h2>Detaljni pregled po mjerama</h2>
+    
+    {% if results and results.measures %}
+        {% for measure in results.measures %}
+        <div class="measure-section no-break">
+            <h3>{{ loop.index }}. {{ measure.code }} - {{ measure.name }}</h3>
+            
+            <table>
+                <tr>
+                    <td colspan="2" style="background-color: #f0f0f0;"><strong>Opći podaci o mjeri</strong></td>
+                </tr>
+                <tr>
+                    <td width="40%"><strong>Kategorija:</strong></td>
+                    <td>{{ measure.category|default('Sigurnosna mjera') }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Obaveznost:</strong></td>
+                    <td>{{ 'OBAVEZNA' if measure.is_mandatory else 'PREPORUČENA' }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Broj kontrola:</strong></td>
+                    <td>{{ measure.controls|length if measure.controls else 0 }}</td>
+                </tr>
+            </table>
+            
+            <table style="margin-top: 1em;">
+                <tr>
+                    <td colspan="2" style="background-color: #f0f0f0;"><strong>Rezultati evaluacije</strong></td>
+                </tr>
+                <tr>
+                    <td width="40%"><strong>Dokumentiranost:</strong></td>
+                    <td>
+                        {{ measure.documentation_score|number(2) }}/5.0 
+                        ({{ (measure.documentation_score * 20)|number(0) }}%)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Implementacija:</strong></td>
+                    <td>
+                        {{ measure.implementation_score|number(2) }}/5.0 
+                        ({{ (measure.implementation_score * 20)|number(0) }}%)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Ukupna ocjena:</strong></td>
+                    <td>
+                        <strong>{{ measure.total_score|number(2) }}/5.0</strong>
+                        ({{ measure.compliance_percentage|percentage }})
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Status sukladnosti:</strong></td>
+                    <td>
+                        <span class="compliance-status {{ 'compliant' if measure.compliance_percentage >= 80 else 'partial' if measure.compliance_percentage >= 60 else 'non-compliant' }}">
+                            {% if measure.compliance_percentage >= 80 %}
+                                SUKLADNO
+                            {% elif measure.compliance_percentage >= 60 %}
+                                DJELOMIČNO SUKLADNO
+                            {% else %}
+                                NESUKLADNO
+                            {% endif %}
+                        </span>
+                    </td>
+                </tr>
+            </table>
+            
+            {% if measure.controls %}
+            <h4>Pregled kontrola</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="45%">Kontrola</th>
+                        <th width="15%">Dokumentiranost</th>
+                        <th width="15%">Implementacija</th>
+                        <th width="10%">Ukupno</th>
+                        <th width="10%">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for control in measure.controls %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ control.name }}</td>
+                        <td>{{ control.documentation_score|number(1) }}/5.0</td>
+                        <td>{{ control.implementation_score|number(1) }}/5.0</td>
+                        <td><strong>{{ control.total_score|number(1) }}</strong></td>
+                        <td>
+                            {% if control.total_score >= 4 %}
+                                ✓
+                            {% elif control.total_score >= 3 %}
+                                ⚠
+                            {% else %}
+                                ✗
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+            
+            {% if measure.ai_recommendation or measure.gaps or measure.recommendations %}
+            <h4>Analiza i preporuke</h4>
+            
+            {% if measure.ai_recommendation %}
+            <div class="recommendation">
+                <p><strong>AI Analiza:</strong></p>
+                {{ measure.ai_recommendation|replace('\n', '<br>')|safe }}
+            </div>
+            {% endif %}
+            
+            {% if measure.gaps %}
+            <p><strong>Identificirani nedostaci:</strong></p>
+            <ul>
+                {% for gap in measure.gaps[:3] %}
+                <li>{{ gap.description }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            
+            {% if measure.recommendations %}
+            <p><strong>Dodatne preporuke:</strong></p>
+            <ul>
+                {% for rec in measure.recommendations[:3] %}
+                <li>{{ rec }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endif %}
+        </div>
+        
+        {% if not loop.last %}
+        <div class="page-break"></div>
+        {% endif %}
+        {% endfor %}
+    {% else %}
+        <p><em>Nema dostupnih podataka o mjerama za prikaz.</em></p>
+    {% endif %}
+    
+    <div class="page-break"></div>
+    
+    <h2>Statistička analiza</h2>
+    
+    <h3>Distribucija ocjena po mjerama</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Raspon ocjene</th>
+                <th>Broj mjera</th>
+                <th>Postotak</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>4.0 - 5.0</td>
+                <td>{{ results.measures|selectattr("total_score", ">=", 4)|list|length if results else 0 }}</td>
+                <td>{{ ((results.measures|selectattr("total_score", ">=", 4)|list|length / results.measures|length * 100) if results and results.measures else 0)|number(1) }}%</td>
+                <td>Izvrsno</td>
+            </tr>
+            <tr>
+                <td>3.0 - 3.9</td>
+                <td>{{ results.measures|selectattr("total_score", ">=", 3)|selectattr("total_score", "<", 4)|list|length if results else 0 }}</td>
+                <td>{{ ((results.measures|selectattr("total_score", ">=", 3)|selectattr("total_score", "<", 4)|list|length / results.measures|length * 100) if results and results.measures else 0)|number(1) }}%</td>
+                <td>Dobro</td>
+            </tr>
+            <tr>
+                <td>2.0 - 2.9</td>
+                <td>{{ results.measures|selectattr("total_score", ">=", 2)|selectattr("total_score", "<", 3)|list|length if results else 0 }}</td>
+                <td>{{ ((results.measures|selectattr("total_score", ">=", 2)|selectattr("total_score", "<", 3)|list|length / results.measures|length * 100) if results and results.measures else 0)|number(1) }}%</td>
+                <td>Zadovoljavajuće</td>
+            </tr>
+            <tr>
+                <td>< 2.0</td>
+                <td>{{ results.measures|selectattr("total_score", "<", 2)|list|length if results else 0 }}</td>
+                <td>{{ ((results.measures|selectattr("total_score", "<", 2)|list|length / results.measures|length * 100) if results and results.measures else 0)|number(1) }}%</td>
+                <td>Nezadovoljavajuće</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    {% if gap_analysis %}
+    <h3>Prioriteti za poboljšanje</h3>
+    <p>Na temelju analize nedostataka, identificirane su sljedeće mjere s najvišim prioritetom:</p>
+    
+    <ol>
+        {% for gap in gap_analysis.gaps[:5] %}
+        <li>
+            <strong>{{ gap.measure_name|default(gap.control_name) }}</strong>
+            <ul>
+                <li>Trenutna ocjena: {{ gap.current_score|number(1) }}/5.0</li>
+                <li>Ciljna ocjena: {{ gap.target_score|number(1) }}/5.0</li>
+                <li>Prioritet: {{ gap.priority }}</li>
+            </ul>
+        </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    
+    <h2>Zaključak</h2>
+    
+    <p>Evaluacija mjera kibernetičke sigurnosti pokazuje da organizacija {{ organization.name }} ima 
+    {{ compliance_level|lower }} sa prosječnom ocjenom {{ assessment.total_score|number(2) }}/5.0.</p>
+    
+    <p>Za postizanje potpune sukladnosti sa zahtjevima ZKS/NIS2 direktive, preporučuje se:</p>
+    <ul>
+        <li>Fokusiranje na mjere s ocjenom ispod 3.0</li>
+        <li>Prioritiziranje obaveznih mjera</li>
+        <li>Implementacija preporučenih kontrola</li>
+        <li>Redovito praćenje napretka</li>
+    </ul>
+    
+    <div class="signature-block">
+        <p><strong>Evaluaciju proveo:</strong></p>
+        <div class="signature-line"></div>
+        <p class="signature-label">_____________________</p>
+        <p class="signature-label">Ovlašteni evaluator</p>
+        
+        <p style="margin-top: 2em;"><strong>Datum:</strong> {{ generation_date|datetime('%d.%m.%Y') }}</p>
+    </div>
+    
+    {% include 'base/footer.html' %}
+</body>
+</html>

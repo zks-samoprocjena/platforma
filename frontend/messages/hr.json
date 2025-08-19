@@ -1,0 +1,1603 @@
+{
+  "HomePage": {
+    "title": "AI Samoprocjena Kibernetičke Sigurnosti",
+    "description": "Platforma za samoprocjenu usklađenosti s propisima ZKS/NIS2 koja koristi naprednu AI tehnologiju za analizu i preporuke poboljšanja sigurnosnih mjera.",
+    "features": {
+      "assessment": {
+        "title": "Samoprocjena",
+        "description": "Sveobuhvatan upitnik s 277 kontrola za procjenu razine kibernetičke sigurnosti organizacije."
+      },
+      "reporting": {
+        "title": "Izvještavanje",
+        "description": "Detaljni izvještaji s analizom nedostataka i preporukama za poboljšanje usklađenosti."
+      },
+      "ai": {
+        "title": "AI Podrška",
+        "description": "Inteligentne preporuke i kontekstualna pomoć tijekom procesa samoprocjene."
+      }
+    },
+    "cta": {
+      "dashboard": "Kontrolna Ploča",
+      "newAssessment": "Nova Samoprocjena",
+      "login": "Prijavite se",
+      "register": "Registrirajte se"
+    },
+    "stats": {
+      "measures": "Mjere",
+      "measuresDesc": "glavnih kategorija sigurnosti",
+      "controls": "Kontrole",
+      "controlsDesc": "ukupno sigurnosnih kontrola",
+      "levels": "Razine",
+      "levelsDesc": "sigurnosnih razina (osnovna/srednja/napredna)"
+    }
+  },
+  "ComplianceDocuments": {
+    "selectDocuments": "Odaberi dokumente",
+    "generationOptions": "Opcije generiranja",
+    "generateDocuments": "Generiraj dokumente",
+    "generating": "Generiranje...",
+    "generationProgress": "Napredak generiranja",
+    "generatedDocuments": "Generirani dokumenti",
+    "generation": {
+      "started": "Generiranje pokrenuto",
+      "completed": "Generiranje završeno",
+      "failed": "Generiranje neuspješno"
+    },
+    "selectAll": "Odaberi sve",
+    "selectedCount": "Odabrano: {count}",
+    "recommended": "Preporučeno",
+    "noDocuments": "Nema generiranih dokumenata",
+    "descriptions": {
+      "complianceDeclaration": "Službena izjava o sukladnosti organizacije s propisima ZKS/NIS2",
+      "selfAssessmentReport": "Detaljan izvještaj o rezultatima samoprocjene s analizom i preporukama",
+      "internalRecord": "Interni zapisnik o procesu samoprocjene za arhiviranje",
+      "evaluationReport": "Evaluacijski izvještaj s analizom po mjerama sigurnosti",
+      "actionPlan": "Akcijski plan za poboljšanje razine sigurnosti"
+    },
+    "options": {
+      "language": "Jezik dokumenta",
+      "aiAnalysis": "AI analiza",
+      "aiAnalysisDescription": "Uključi AI-generiranu analizu i preporuke u dokument",
+      "recommendations": "Preporuke",
+      "recommendationsDescription": "Uključi preporuke za poboljšanje u dokument",
+      "roadmap": "Roadmap",
+      "roadmapDescription": "Uključi roadmap implementacije u dokument",
+      "aiProcessingNote": "AI analiza može produžiti vrijeme generiranja dokumenta za 30-60 sekundi.",
+      "noAIFeatures": "Nema dostupnih AI funkcionalnosti za odabrane tipove dokumenata."
+    },
+    "actions": {
+      "refresh": "Osvježi",
+      "download": "Preuzmi",
+      "generate": "Generiraj",
+      "generateSelected": "Generiraj odabrane",
+      "cancel": "Otkaži",
+      "delete": "Obriši"
+    },
+    "status": {
+      "pending": "Na čekanju",
+      "processing": "Obrađuje se",
+      "completed": "Završeno",
+      "failed": "Neuspješno"
+    },
+    "table": {
+      "type": "Tip",
+      "version": "Verzija",
+      "size": "Veličina",
+      "created": "Stvoreno",
+      "actions": "Akcije"
+    },
+    "download": {
+      "success": "Dokument je uspješno preuzet",
+      "failed": "Preuzimanje dokumenta neuspješno"
+    },
+    "delete": {
+      "success": "Dokument je uspješno obrisan",
+      "failed": "Brisanje dokumenta neuspješno",
+      "confirmTitle": "Brisanje dokumenta",
+      "confirmMessage": "Jeste li sigurni da želite obrisati {documentType}?",
+      "warning": "Ova radnja se ne može poništiti."
+    },
+    "errors": {
+      "noDocumentsSelected": "Molimo odaberite barem jedan tip dokumenta",
+      "generationFailed": "Generiranje dokumenta neuspješno",
+      "generationTimeout": "Generiranje dokumenta je prekoračilo vremensko ograničenje",
+      "fetchFailed": "Dohvaćanje dokumenata neuspješno"
+    },
+    "success": {
+      "documentGenerated": "Dokument je uspješno generiran",
+      "batchGenerated": "Dokumenti su uspješno generirani"
+    },
+    "pagination": {
+      "page": "Stranica"
+    }
+  },
+  "Navigation": {
+    "dashboard": "Kontrolna Ploča",
+    "assessments": "Samoprocjene",
+    "newAssessment": "Nova Samoprocjena",
+    "reports": "Izvještaji",
+    "documents": "Dokumenti",
+    "settings": "Postavke",
+    "help": "Pomoć",
+    "logout": "Odjava"
+  },
+  "Organization": {
+    "setup": {
+      "title": "Postavljanje organizacije",
+      "subtitle": "Molimo unesite podatke o vašoj organizaciji",
+      "basicInfo": "Osnovni podaci",
+      "details": "Detalji",
+      "name": "Naziv organizacije",
+      "code": "Kod organizacije",
+      "type": "Tip organizacije",
+      "securityLevel": "Razina sigurnosti",
+      "website": "Web stranica",
+      "size": "Veličina organizacije",
+      "description": "Opis organizacije",
+      "next": "Dalje",
+      "back": "Natrag",
+      "complete": "Završi postavljanje",
+      "setting": "Postavljanje...",
+      "namePlaceholder": "npr. Ministarstvo gospodarstva",
+      "codePlaceholder": "npr. MIN-GOSP",
+      "codeHint": "Automatski generiran iz naziva, možete promijeniti",
+      "organizationTypes": {
+        "government": "Državna uprava",
+        "private-sector": "Privatni sektor",
+        "critical-infrastructure": "Kritična infrastruktura",
+        "other": "Ostalo"
+      },
+      "securityLevelDesc": {
+        "osnovna": "Za manje organizacije",
+        "srednja": "Za većinu organizacija",
+        "napredna": "Za kritične organizacije"
+      },
+      "additionalInfo": "Dodatni podaci",
+      "sizeLabel": "zaposlenika",
+      "websitePlaceholder": "https://www.primjer.hr",
+      "descriptionPlaceholder": "Kratki opis vaše organizacije i njezinih djelatnosti...",
+      "whyNeeded": "Zašto trebamo ove podatke?",
+      "whyNeededDesc": "Podaci o vašoj organizaciji pomažu nam prilagoditi samoprocjenu vašim specifičnim potrebama i osigurati usklađenost s relevantnim propisima.",
+      "organizationExists": "Organizacija već postoji. Bit ćete dodani u: {{name}}. Molimo odjavite se i ponovno prijavite za osvježavanje pristupa.",
+      "createError": "Greška pri stvaranju organizacije: {{error}}",
+      "setupError": "Neuspješno postavljanje organizacije. Molimo pokušajte ponovno."
+    }
+  },
+  "AI": {
+    "help": {
+      "title": "AI Pomoć",
+      "subtitle": "Kontekstualne preporuke i smjernice",
+      "guidance": "Smjernice za kontrolu",
+      "askQuestion": "Postavite pitanje",
+      "findDocuments": "Pronađite dokumente",
+      "yourQuestion": "Vaše pitanje",
+      "questionPlaceholder": "Kako da implementiram ovu kontrolu?",
+      "ask": "Pitaj",
+      "sources": "Izvori",
+      "noGuidance": "Trenutno nema dostupnih smjernica za ovu kontrolu.",
+      "errorMessage": "Dogodila se greška prilikom dohvaćanja AI odgovora.",
+      "tips": "Savjeti",
+      "tip1": "Specifična pitanja daju bolje odgovore",
+      "tip2": "Koristite hrvatske termine za najbolje rezultate",
+      "tip3": "AI može pomoći s implementacijom i dokumentacijom"
+    },
+    "recommendations": {
+      "title": "AI Preporuke",
+      "loading": "Dohvaćaju se personalizirane preporuke...",
+      "noRecommendations": "Trenutno nema dostupnih preporuka.",
+      "available": "dostupno",
+      "criticalPriority": "Kritičan prioritet",
+      "highPriority": "Visoki prioritet",
+      "mediumPriority": "Srednji prioritet",
+      "lowPriority": "Niski prioritet",
+      "generalPriority": "Općenito",
+      "implementationSteps": "Koraci implementacije",
+      "category": "Kategorija",
+      "impact": "Utjecaj na usklađenost",
+      "viewDetails": "Više detalja",
+      "viewAll": "Prikaži sve",
+      "topRecommendations": "Top 3 preporuke"
+    },
+    "chat": {
+      "title": "AI Asistent",
+      "controlContext": "AI Pomoć za kontrolu",
+      "subtitle": "Pošaljite pitanje na hrvatskom jeziku",
+      "openChat": "Otvori AI chat",
+      "welcomeMessage": "Pozdrav! Kako Vam mogu pomoći s kibernetičkom sigurnošću? Postavite mi bilo koje pitanje na hrvatskom jeziku.",
+      "errorMessage": "Oprostite, došlo je do greške. Molimo pokušajte ponovo.",
+      "sources": "Izvori",
+      "thinking": "Razmišljam...",
+      "suggestedQuestions": "Predložena pitanja",
+      "suggestion1": "Kako implementirati ovu sigurnosnu kontrolu?",
+      "suggestion2": "Koja dokumentacija je potrebna za usklađenost?",
+      "suggestion3": "Koje su najbolje prakse za ovu mjeru?",
+      "suggestion4": "Kako mogu poboljšati svoju ocjenu?",
+      "inputPlaceholder": "Unesite svoje pitanje ovdje...",
+      "tip": "Pritisnite",
+      "send": "za slanje"
+    }
+  },
+  "Assessment": {
+    "securityLevels": {
+      "osnovna": "Osnovna razina sigurnosti",
+      "srednja": "Srednja razina sigurnosti",
+      "napredna": "Napredna razina sigurnosti"
+    },
+    "securityLevel": {
+      "label": "Razina sigurnosti",
+      "osnovna": "Osnovna",
+      "srednja": "Srednja",
+      "napredna": "Napredna",
+      "osnovnaDesc": "Za manje organizacije s osnovnim sigurnosnim potrebama",
+      "srednjaDesc": "Za srednje organizacije s umjerenim sigurnosnim rizicima",
+      "naprednaDesc": "Za kritične organizacije s visokim sigurnosnim zahtjevima"
+    },
+    "controls": {
+      "documentation": "Razina dokumentacije",
+      "implementation": "Razina implementacije",
+      "mandatory": "Obavezno",
+      "voluntary": "Dobrovoljno",
+      "comments": "Komentari",
+      "evidence": "Dokazi",
+      "askAI": "Pitaj AI",
+      "showDefinition": "Prikaži definiciju",
+      "viewInCatalog": "Pogledaj u katalogu"
+    },
+    "progress": {
+      "label": "Napredak",
+      "completed": "Završeno",
+      "inProgress": "U tijeku",
+      "notStarted": "Nije započeto",
+      "overall": "Ukupno",
+      "mandatory": "Obavezne",
+      "voluntary": "Dobrovoljne kontrole",
+      "controls": "kontrola"
+    },
+    "scores": {
+      "documentation": "Dokumentacija",
+      "implementation": "Implementacija",
+      "excellent": "Izvrsno (4-5)",
+      "good": "Dobro (3-4)",
+      "moderate": "Umjereno (2-3)",
+      "poor": "Slabo (1-2)",
+      "compliance": "Usklađenost"
+    },
+    "status": {
+      "all": "Sve",
+      "draft": "Nacrt",
+      "in_progress": "U tijeku",
+      "review": "Pregled",
+      "completed": "Završeno",
+      "abandoned": "Napušteno",
+      "archived": "Arhivirano"
+    },
+    "actions": {
+      "save": "Spremi",
+      "submit": "Pošalji",
+      "continue": "Nastavi",
+      "resume": "Nastavi",
+      "previous": "Prethodno",
+      "next": "Sljedeće",
+      "finish": "Završi",
+      "export": "Izvezi",
+      "exportPDF": "Izvezi PDF",
+      "exporting": "Izvoz...",
+      "archive": "Arhiviraj",
+      "duplicate": "Dupliciraj",
+      "delete": "Obriši",
+      "createNew": "Nova samoprocjena",
+      "createFirst": "Stvorite prvu samoprocjenu",
+      "viewResults": "Pogledaj rezultate",
+      "confirmDelete": "Jeste li sigurni da želite obrisati ovu samoprocjenu?",
+      "create": "Stvori"
+    },
+    "deleteDialog": {
+      "title": "Potvrdi brisanje",
+      "subtitle": "Ova radnja se ne može poništiti.",
+      "message": "Jeste li sigurni da želite obrisati samoprocjenu \"{title}\"?",
+      "warning": "Svi podaci, uključujući odgovore i rezultate, bit će trajno uklonjeni.",
+      "cancel": "Odustani",
+      "confirm": "Obriši",
+      "deleting": "Brisanje..."
+    },
+    "archiveDialog": {
+      "title": "Arhiviraj samoprocjenu",
+      "subtitle": "Premjesti ovu samoprocjenu u arhiv",
+      "message": "Jeste li sigurni da želite arhivirati \"{title}\"?",
+      "info": "Arhivirane samoprocjene mogu se pregledati ali ne i uređivati. Možete ih vratiti kasnije ako bude potrebno.",
+      "cancel": "Odustani",
+      "confirm": "Arhiviraj",
+      "archiving": "Arhiviranje..."
+    },
+    "deadline": {
+      "today": "Rok danas",
+      "overdue": "{days, plural, =1 {1 dan kašnjenja} few {# dana kašnjenja} other {# dana kašnjenja}}",
+      "remaining": "{days, plural, =1 {Još 1 dan} few {Još # dana} other {Još # dana}}"
+    },
+    "lastEditedBy": "Zadnje uređivao {user} {date}",
+    "unknownUser": "Nepoznato",
+    "deleteSuccess": "Procjena je uspješno obrisana",
+    "deleteError": "Greška pri brisanju procjene",
+    "archiveSuccess": "Procjena je uspješno arhivirana",
+    "archiveError": "Greška pri arhiviranju procjene",
+    "exportSuccess": "PDF je uspješno izvezen",
+    "exportError": "Greška pri izvozu PDF-a",
+    "createSuccess": "Samoprocjena je uspješno stvorena",
+    "createError": "Greška pri stvaranju samoprocjene",
+    "duplicateSuccess": "Samoprocjena je uspješno duplicirana",
+    "duplicateError": "Greška pri dupliciranju samoprocjene",
+    "fields": {
+      "title": "Naziv samoprocjene",
+      "titlePlaceholder": "npr. Q1 2024 Samoprocjena kibernetičke sigurnosti",
+      "description": "Opis (neobavezno)",
+      "descriptionPlaceholder": "Kratki opis svrhe ove samoprocjene...",
+      "dueDate": "Rok završetka",
+      "dueDateHint": "Neobavezni rok za završetak samoprocjene"
+    },
+    "search": {
+      "placeholder": "Pretraži samoprocjene..."
+    },
+    "sort": {
+      "updated": "Zadnje ažurirano",
+      "created": "Datum stvaranja",
+      "title": "Naziv"
+    },
+    "empty": {
+      "noResults": "Nema rezultata pretrage",
+      "noAssessments": "Nema samoprocjena"
+    },
+    "pagination": {
+      "page": "Stranica {{page}}"
+    },
+    "updatedAt": "Ažurirano",
+    "errors": {
+      "loadingFailed": "Neuspješno učitavanje samoprocjena"
+    }
+  },
+  "Dashboard": {
+    "title": "Kontrolna Ploča",
+    "subtitle": "Pregled vaših samoprocjena i napretka u usklađenosti s propisima ZKS/NIS2",
+    "welcome": "Dobrodošli",
+    "overview": "Pregled",
+    "recentAssessments": "Nedavne Samoprocjene",
+    "complianceOverview": "Pregled Usklađenosti",
+    "quickActions": "Brze Radnje",
+    "duplicateAssessment": "Dupliciraj procjenu",
+    "viewAll": "Prikaži sve",
+    "noAssessments": "Nemate nijednu procjenu",
+    "startFirst": "Započnite prvu procjenu",
+    "progress": "Napredak",
+    "descriptions": {
+      "newAssessment": "Započnite novu samoprocjenu kibernetičke sigurnosti",
+      "duplicateAssessment": "Kopirajte postojeću procjenu kao predložak",
+      "reports": "Pregledajte izvještaje o usklađenosti",
+      "help": "Dobijte pomoć i upute za korištenje"
+    },
+    "statistics": {
+      "totalAssessments": "Ukupno Samoprocjena",
+      "completedAssessments": "Završene Samoprocjene",
+      "averageCompliance": "Prosječna Usklađenost",
+      "improvementAreas": "Područja za Poboljšanje",
+      "inProgress": "u tijeku",
+      "noActive": "Nema aktivnih",
+      "ofTotal": "od ukupno",
+      "good": "Dobro",
+      "needsImprovement": "Potrebno poboljšanje",
+      "measures": "mjera",
+      "excellent": "Izvrsno",
+      "complianceByLevel": "Razina usklađenosti po sigurnosnim razinama",
+      "level": "razina",
+      "controls": "kontrola",
+      "noAssessments": "Nema procjena",
+      "completed": "završeno",
+      "compliance": "usklađenost"
+    },
+    "status": {
+      "completed": "Završeno",
+      "inProgress": "U tijeku",
+      "in_progress": "U tijeku",
+      "draft": "Nacrt",
+      "review": "Pregled",
+      "abandoned": "Napušteno",
+      "archived": "Arhivirano"
+    },
+    "actions": {
+      "viewResults": "Prikaži rezultate",
+      "continue": "Nastavi",
+      "edit": "Uredi",
+      "open": "Otvori"
+    },
+    "kpis": {
+      "title": "Ključni pokazatelji učinka",
+      "totalAssessments": "Ukupno samoprocjena",
+      "totalAssessmentsSubtitle": "Sve samoprocjene",
+      "completed": "Završene",
+      "ofTotal": "od ukupno",
+      "inProgress": "U tijeku",
+      "activeAssessments": "Aktivne samoprocjene",
+      "avgDocMaturity": "Prosječna dokumentacijska zrelost",
+      "avgImplMaturity": "Prosječna implementacijska zrelost",
+      "scale15": "Skala 1-5",
+      "redZoneControls": "Kontrole u crvenoj zoni",
+      "highRisk": "Visoki rizik",
+      "controlsWithoutEvidence": "Kontrole bez dokaza",
+      "needsDocumentation": "Potrebna dokumentacija",
+      "estimatedCompletion": "Procijenjeno dovršavanje",
+      "noActiveAssessments": "Nema aktivnih",
+      "basedOnProgress": "Na temelju napretka"
+    },
+    "activities": {
+      "title": "Aktivnosti i rokovi",
+      "assessmentUpdated": "Samoprocjena ažurirana: {title}",
+      "statusChanged": "Status promijenjen u {status}",
+      "unknownUser": "Nepoznat korisnik",
+      "evidenceDeadline": "Rok za dostavu dokaza",
+      "controlsNeedEvidence": "{count} kontrola treba dokaze za {assessment}",
+      "dueThisWeek": "{count} stavki dospijeva ovaj tjedan",
+      "noActivities": "Nema nedavnih aktivnosti"
+    }
+  },
+  "Common": {
+    "loading": "Učitavanje...",
+    "error": "Greška",
+    "success": "Uspješno",
+    "warning": "Upozorenje",
+    "info": "Informacija",
+    "confirm": "Potvrdi",
+    "cancel": "Otkaži",
+    "close": "Zatvori",
+    "search": "Pretraži",
+    "filter": "Filtriraj",
+    "sort": "Sortiraj",
+    "delete": "Obriši",
+    "edit": "Uredi",
+    "view": "Pogledaj",
+    "create": "Stvori",
+    "update": "Ažuriraj",
+    "creating": "Stvaranje...",
+    "navigation": {
+      "assessments": "Samoprocjene"
+    },
+    "securityLevels": {
+      "osnovna": "Osnovna",
+      "srednja": "Srednja",
+      "napredna": "Napredna"
+    },
+    "actions": {
+      "export": "Izvezi",
+      "share": "Podijeli"
+    },
+    "status": {
+      "draft": "Nacrt",
+      "inProgress": "U tijeku",
+      "review": "Pregled",
+      "completed": "Završeno",
+      "archived": "Arhivirano"
+    }
+  },
+  "Auth": {
+    "login": "Prijava",
+    "logout": "Odjava",
+    "email": "Email adresa",
+    "password": "Lozinka",
+    "rememberMe": "Zapamti me",
+    "forgotPassword": "Zaboravili ste lozinku?",
+    "loginButton": "Prijavite se",
+    "loginError": "Greška prilikom prijave",
+    "loginSuccess": "Uspješno ste prijavljeni",
+    "logoutSuccess": "Uspješno ste odjavljeni"
+  },
+  "errors": {
+    "title": "Došlo je do greške",
+    "description": "Dogodila se neočekivana greška. Molimo pokušajte ponovno ili kontaktirajte podršku ako se problem nastavi.",
+    "technicalDetails": "Tehnički detalji",
+    "tryAgain": "Pokušaj ponovno",
+    "reloadPage": "Osvježi stranicu",
+    "api": {
+      "title": "Greška u komunikaciji",
+      "description": "Neuspješno dohvaćanje podataka s poslužitelja.",
+      "retry": "Pokušaj ponovno"
+    }
+  },
+  "Measures": {
+    "M01": "Politike kibernetičke sigurnosti",
+    "M02": "Upravljanje rizicima kibernetičke sigurnosti",
+    "M03": "Upravljanje imovinom",
+    "M04": "Upravljanje pristupom",
+    "M05": "Kriptografija",
+    "M06": "Fizička i ekološka sigurnost",
+    "M07": "Sigurnost operacija",
+    "M08": "Sigurnost komunikacija",
+    "M09": "Razvoj i održavanje sustava",
+    "M10": "Upravljanje odnosima s dobavljačima",
+    "M11": "Upravljanje incidentima kibernetičke sigurnosti",
+    "M12": "Kontinuitet poslovanja",
+    "M13": "Usklađenost"
+  },
+  "results": {
+    "title": "Rezultati samoprocjene",
+    "defaultDescription": "Sveobuhvatan pregled stanja usklađenosti s propisima ZKS/NIS2",
+    "overallCompliance": "Ukupna usklađenost",
+    "lastComputedAt": "Zadnje izračunato",
+    "refreshInsights": "Osvježi uvide",
+    "noInsights": "Nema dostupnih uvida",
+    "error": {
+      "title": "Greška pri učitavanju rezultata",
+      "message": "Dogodila se greška pri dohvaćanju podataka o rezultatima."
+    },
+    "complianceLevel": {
+      "excellent": "Izvrsno",
+      "good": "Dobro", 
+      "moderate": "Umjereno",
+      "needsImprovement": "Potrebno poboljšanje"
+    },
+    "metrics": {
+      "completed": "Završeno",
+      "controls": "Kontrole",
+      "mandatory": "Obavezno"
+    },
+          "tabs": {
+        "overview": "Pregled",
+        "complianceDetails": "Detalji usklađenosti",
+        "compliance": "Usklađenost",
+        "gapAnalysis": "Analiza nedostataka",
+        "gaps": "Analiza nedostataka",
+        "recommendations": "Preporuke",
+        "roadmap": "Plan poboljšanja",
+        "documents": "Dokumenti",
+        "export": "Izvoz"
+      },
+    "overview": {
+      "complianceScore": "Razina usklađenosti",
+      "complianceDescription": "Ukupna razina usklađenosti na temelju odgovorenih kontrola",
+      "progressBreakdown": "Pregled napretka",
+      "overallCompletion": "Ukupna popunjenost",
+      "mandatoryControls": "Obavezne kontrole",
+      "stats": {
+        "totalControls": "Ukupno kontrola",
+        "completed": "Završeno",
+        "mandatory": "Obavezno",
+        "pending": "Čeka"
+      },
+      "complianceLevel": {
+        "excellent": "Izvrsno (≥90%)",
+        "good": "Dobro (75-89%)",
+        "moderate": "Umjereno (60-74%)",
+        "needsImprovement": "Potrebno poboljšanje (<60%)"
+      }
+    },
+    "measures": {
+      "title": "Pregled po mjerama",
+      "submeasures": "podmjera",
+      "controls": "kontrola",
+      "completion": "Popunjenost",
+      "compliance": "Usklađenost",
+      "averageDocumentation": "Prosjek dokumentacije",
+      "averageImplementation": "Prosjek implementacije",
+      "mandatoryCompleted": "Obavezne kontrole",
+      "gapAreas": "Područja nedostataka",
+      "excellent": "Izvrsno",
+      "good": "Dobro",
+      "moderate": "Umjereno",
+      "needsImprovement": "Potrebno poboljšanje"
+    },
+    "compliance": {
+      "detailsByMeasures": "Detalji usklađenosti po mjerama"
+    },
+    "gaps": {
+      "title": "Analiza nedostataka",
+      "filters": {
+        "priority": "Prioritet",
+        "category": "Kategorija",
+        "all": "Svi"
+      },
+      "priority": {
+        "critical": "Kritično",
+        "high": "Visoko",
+        "medium": "Srednje",
+        "low": "Nisko"
+      },
+      "category": {
+        "mandatory": "Obavezno",
+        "implementation": "Implementacija",
+        "documentation": "Dokumentacija"
+      },
+      "effort": {
+        "high": "Visok trud",
+        "medium": "Srednji trud",
+        "low": "Nizak trud",
+        "undefined": "Nedefinirano"
+      },
+      "gapScore": "Nedostatak",
+      "currentProgress": "Trenutni napredak",
+      "estimatedTime": "Procijenjeno vrijeme",
+      "weeks": "tjedana",
+      "recommendations": "Preporuke",
+      "noGaps": {
+        "title": "Nema identificiranih nedostataka",
+        "description": "Odlično! Trenutna konfiguracija filtera ne prikazuje nedostatke."
+      },
+      "summary": {
+        "title": "Sažetak analize nedostataka"
+      }
+    },
+    "recommendations": {
+      "title": "AI preporuke za poboljšanje",
+      "description": "Napredne preporuke generirane umjetnom inteligencijom na temelju analize rezultata",
+      "loading": "Generiranje preporuka...",
+      "error": {
+        "title": "Greška pri generiranju preporuka",
+        "message": "Dogodila se greška pri dohvaćanju AI preporuka.",
+        "retry": "Pokušaj ponovno"
+      },
+      "filters": {
+        "priority": "Prioritet",
+        "effort": "Trud",
+        "status": "Status",
+        "all": "Sve",
+        "pending": "Na čekanju",
+        "implemented": "Implementirano",
+        "sortBy": "Sortiraj po",
+        "impactScore": "Utjecaj",
+        "newest": "Najnovije"
+      },
+      "priority": {
+        "high": "Visok",
+        "medium": "Srednji",
+        "low": "Nizak"
+      },
+      "effort": {
+        "high": "Visok trud",
+        "medium": "Srednji trud",
+        "low": "Nizak trud",
+        "undefined": "Nedefinirano"
+      },
+      "generateNew": "Generiraj nove",
+      "generateSuccess": "Preporuke su uspješno generirane!",
+      "implementationSteps": "Koraci implementacije",
+      "weeks": "tjedana",
+      "compliance": "usklađenosti",
+      "sourceReferences": "Izvorni dokumenti",
+      "implemented": "Implementirano",
+      "markImplemented": "Označi kao implementirano",
+      "regenerate": "Regeneriraj",
+      "regenerating": "Regeneriranje preporuke...",
+      "regenerateSuccess": "Preporuka je uspješno regenerirana!",
+      "regenerateError": "Greška pri regeneriranju preporuke",
+      "noRecommendations": {
+        "title": "Nema dostupnih preporuka",
+        "description": "Generirajte nove preporuke na temelju trenutnih rezultata."
+      },
+      "generateRecommendations": "Generiraj preporuke",
+      "summary": {
+        "title": "Sažetak preporuka"
+      },
+      "actions": {
+        "showMore": "Prikaži više preporuka"
+      },
+      "showingRecommendations": "Prikazuje se {count} od {total} preporuka",
+      "showingInfo": "Dostupno još {remaining} preporuka",
+      "loadingMore": "Generiranje dodatnih preporuka...",
+      "generatingMore": "Generiranje dodatnih preporuka..."
+    },
+    "roadmap": {
+            "title": "Plan poboljšanja sigurnosti",
+       "loading": "Generiranje plana poboljšanja...",
+       "error": "Greška pri generiranju plana poboljšanja",
+       "retry": "Pokušaj ponovno",
+       "noData": "Nema dostupnih podataka za plan poboljšanja",
+       "stats": {
+        "totalItems": "Ukupno stavki",
+        "completed": "Završeno",
+        "impact": "Utjecaj",
+        "timeline": "Vremenski okvir",
+        "weeks": "tjedana"
+      },
+      "priority": {
+        "high": "Visok",
+        "medium": "Srednji",
+        "low": "Nizak"
+      },
+      "effort": {
+        "high": "Visok",
+        "medium": "Srednji",
+        "low": "Nizak"
+      },
+      "weeks": "tjedana",
+      "dependencies": "Ovisnosti",
+      "exportRoadmap": "Izvezi plan",
+      "scheduleReview": "Zakaži pregled"
+    },
+    "export": {
+      "title": "Izvoz rezultata",
+      "generating": "Generiranje...",
+      "pdf": {
+        "title": "PDF izvještaj",
+        "description": "Profesionalni izvještaj za menadžment",
+        "button": "Izvezi PDF",
+        "success": "PDF izvještaj je uspješno generiran",
+        "error": "Greška pri generiranju PDF izvještaja",
+        "features": {
+          "compliance": "Pregled usklađenosti",
+          "gaps": "Analiza nedostataka",
+          "recommendations": "AI preporuke",
+          "croatian": "Hrvatski format"
+        }
+      },
+      "excel": {
+        "title": "Excel tablica",
+        "description": "Strukturirani podaci za analizu",
+        "button": "Izvezi Excel",
+        "success": "Excel datoteka je uspješno generirana",
+        "error": "Greška pri generiranju Excel datoteke",
+        "features": {
+          "structured": "Strukturirani podaci",
+          "analysis": "Detaljne analize",
+          "filtering": "Filtriranje i sortiranje",
+          "calculations": "Automatski proračuni"
+        }
+      },
+      "summary": {
+        "title": "Sažetak JSON",
+        "description": "Programski pristup podacima",
+        "button": "Izvezi sažetak",
+        "success": "Sažetak je uspješno generiran",
+        "error": "Greška pri generiranju sažetka",
+        "features": {
+          "executive": "Izvršni sažetak",
+          "findings": "Ključni nalazi",
+          "actions": "Preporučene akcije",
+          "json": "JSON format"
+        }
+      },
+      "info": {
+        "title": "Informacije o izvozu",
+        "files": "Datoteke se automatski pohranjuju u Downloads mapu",
+        "compliance": "Svi izvozi uključuju potpune podatke o usklađenosti",
+        "privacy": "Podaci se obrađuju lokalno - ne šalju se na servere",
+        "format": "Formati su optimizirani za hrvatsko poslovno okruženje"
+      }
+    }
+  },
+  "Settings": {
+    "title": "Postavke",
+    "description": "Upravljanje vašim profilom i postavkama aplikacije",
+    "header": {
+      "title": "Postavke",
+      "subtitle": "Upravljajte svojim profilom i postavkama platforme"
+    },
+    "navigation": {
+      "profile": "Profil korisnika",
+      "preferences": "Postavke",
+      "notifications": "Obavijesti",
+      "security": "Sigurnost",
+      "data": "Podaci"
+    },
+    "profile": {
+      "title": "Profil korisnika",
+      "readOnlyHint": "Ove informacije upravlja sustav i ne mogu se mijenjati",
+      "editableSection": "Podaci profila koje možete mijenjati",
+      "name": {
+        "label": "Ime i prezime",
+        "placeholder": "Unesite ime i prezime"
+      },
+      "email": {
+        "label": "Email adresa",
+        "placeholder": "email@example.hr"
+      },
+      "organization": {
+        "label": "Organizacija",
+        "placeholder": "Naziv organizacije"
+      },
+      "systemRoles": {
+        "label": "Sistemske uloge",
+        "noRoles": "Nema dodijeljenih uloga",
+        "hint": "Sistemske uloge dodjeljuju administratori i ne mogu se mijenjati ovdje",
+        "outOfSync": "Vaše uloge mogu biti zastarjele. Molimo odjavite se i ponovno se prijavite za osvježavanje."
+      },
+      "jobTitle": {
+        "label": "Radno mjesto",
+        "placeholder": "npr. CISO, IT Manager, Sigurnosni analitičar"
+      },
+      "department": {
+        "label": "Odjel",
+        "placeholder": "npr. IT, Sigurnost, Usklađenost"
+      },
+      "phone": {
+        "label": "Telefon",
+        "placeholder": "+385 1 234 5678"
+      },
+      "location": {
+        "label": "Lokacija",
+        "placeholder": "Zagreb, Hrvatska"
+      },
+      "responsibilities": {
+        "label": "Radne odgovornosti",
+        "placeholder": "Opišite svoje glavne odgovornosti i područja stručnosti..."
+      },
+      "updateSuccess": "Profil je uspješno ažuriran",
+      "updateError": "Neuspješno ažuriranje profila. Molimo pokušajte ponovno.",
+      "accountInfo": {
+        "title": "Informacije o računu",
+        "userId": "Korisnički ID:",
+        "systemRoles": "Sistemske uloge:",
+        "organizationId": "ID organizacije:"
+      }
+    },
+    "preferences": {
+      "title": "Postavke sučelja",
+      "language": {
+        "label": "Jezik",
+        "options": {
+          "hr": "Hrvatski",
+          "en": "English"
+        }
+      },
+      "theme": {
+        "label": "Tema",
+        "options": {
+          "light": "Svijetla",
+          "dark": "Tamna",
+          "system": "Sistemska"
+        }
+      },
+      "autoSave": {
+        "title": "Automatsko spremanje",
+        "description": "Automatski sprema odgovore tijekom rada na samoprocjeni",
+        "intervalLabel": "Interval spremanja (sekunde)",
+        "currentInterval": "Trenutno: {seconds} sekundi"
+      }
+    },
+    "notifications": {
+      "title": "Obavijesti",
+      "emailNotifications": {
+        "title": "Email obavijesti",
+        "description": "Primajte obavijesti o važnim događajima putem email-a"
+      },
+      "assessmentReminders": {
+        "title": "Podsjetnici za samoprocjene",
+        "description": "Podsjetnici o nedovršenim samoprocjenama"
+      },
+      "complianceAlerts": {
+        "title": "Upozorenja o usklađenosti",
+        "description": "Obavijesti o kritičnim nedostacima u usklađenosti"
+      },
+      "weeklyReports": {
+        "title": "Tjedni izvještaji",
+        "description": "Tjedni sažetak napretka i preporuka"
+      }
+    },
+    "security": {
+      "title": "Sigurnost",
+      "recommendation": {
+        "title": "Sigurnosna preporuka",
+        "description": "Omogućite dvofaktorsku provjeru za dodatnu sigurnost vašeg računa."
+      },
+      "twoFactor": {
+        "title": "Dvofaktorska provjera (2FA)",
+        "description": "Dodatna razina sigurnosti za vaš račun",
+        "enabled": "Omogućeno",
+        "disabled": "Onemogućeno",
+        "enable": "Omogući",
+        "disable": "Onemogući"
+      },
+      "sessionTimeout": {
+        "label": "Istek sesije (minute)",
+        "options": {
+          "60": "1 sat",
+          "240": "4 sata",
+          "480": "8 sati",
+          "720": "12 sati",
+          "1440": "24 sata"
+        }
+      },
+      "passwordManagement": {
+        "title": "Upravljanje lozinkom",
+        "changePassword": "Promijeni lozinku",
+        "generatePassword": "Generiraj sigurnu lozinku"
+      }
+    },
+    "data": {
+      "title": "Upravljanje podacima",
+      "gdprCompliance": {
+        "title": "GDPR usklađenost",
+        "description": "Vaši podaci se obrađuju u skladu s GDPR propisima i čuvaju se u Republici Hrvatskoj."
+      },
+      "dataRetention": {
+        "label": "Vrijeme čuvanja podataka (mjeseci)",
+        "options": {
+          "12": "12 mjeseci",
+          "24": "24 mjeseca",
+          "36": "36 mjeseci",
+          "60": "5 godina",
+          "84": "7 godina"
+        },
+        "recommendation": "Preporučeno: 24 mjeseca za regulatorne potrebe"
+      },
+      "shareAnalytics": {
+        "title": "Dijeljenje analitike",
+        "description": "Anonimni podaci za poboljšanje platforme"
+      },
+      "exportAndDelete": {
+        "title": "Izvoz i brisanje podataka",
+        "exportData": "Izvezi sve moje podatke (GDPR zahtjev)",
+        "deleteAccount": "Zatraži brisanje računa"
+      }
+    },
+    "actions": {
+      "unsavedChanges": "Nespremljene promjene",
+      "cancel": "Odustani",
+      "save": "Spremi promjene",
+      "saving": "Spremanje..."
+    }
+  },
+  "Help": {
+    "title": "Pomoć",
+    "description": "Dokumentacija i podrška za korištenje platforme",
+    "header": {
+      "title": "Centar za pomoć",
+      "subtitle": "Dokumentacija, vodiči i često postavljana pitanja za ZKS/NIS2 platformu"
+    },
+    "quickActions": {
+      "videoGuides": {
+        "title": "Video vodiči",
+        "description": "Pogledajte kratke video vodiče za brže usvajanje platforme",
+        "button": "Pogledaj sve"
+      },
+      "contactSupport": {
+        "title": "Kontakt podrška",
+        "description": "Trebate dodatnu pomoć? Kontaktirajte našu stručnu podršku",
+        "button": "Kontaktiraj"
+      },
+      "documentation": {
+        "title": "Dokumentacija",
+        "description": "Preuzmite detaljnu dokumentaciju i priručnike u PDF formatu",
+        "button": "Preuzmi"
+      }
+    },
+    "faq": {
+      "title": "Često postavljana pitanja",
+      "search": {
+        "placeholder": "Pretraži pitanja..."
+      },
+      "categories": {
+        "all": "Sve kategorije",
+        "general": "Općenito",
+        "assessment": "Samoprocjena",
+        "compliance": "Usklađenost",
+        "technical": "Tehnički",
+        "account": "Račun"
+      },
+      "priority": {
+        "high": "Važno"
+      },
+      "noResults": {
+        "title": "Nema rezultata",
+        "message": "Pokušajte s drugim pojmovima pretrage ili kategorijama."
+      },
+      "items": {
+        "zks_nis2": {
+          "question": "Što je ZKS/NIS2 direktiva i zašto je važna?",
+          "answer": "ZKS (Zakon o kibernetičkoj sigurnosti) je hrvatski zakon koji implementira EU NIS2 direktivu. Propisuje obveze kibernetičke sigurnosti za ključne i važne subjekte u Hrvatskoj, uključujući banke, energetske tvrtke, telekomunikacije i druge kritične sektore."
+        },
+        "create_assessment": {
+          "question": "Kako pokrenuti novu samoprocjenu?",
+          "answer": "Idite na \"Samoprocjene\" u glavnom meniju i kliknite \"Nova samoprocjena\". Odaberite odgovarajuću sigurnosnu razinu (osnovna, srednja, napredna) ovisno o veličini i složenosti vaše organizacije."
+        },
+        "security_levels": {
+          "question": "Koja je razlika između sigurnosnih razina?",
+          "answer": "Osnovna razina (227 kontrola) je za manje organizacije, srednja i napredna razina (277 kontrola) za veće i kompleksnije organizacije s višim rizicima."
+        },
+        "scoring": {
+          "question": "Kako se ocjenjuju kontrole?",
+          "answer": "Svaka kontrola se ocjenjuje na skali 1-5 za dokumentaciju i implementaciju. 1 = nepostojeće, 2 = djelomično, 3 = zadovoljavajuće, 4 = dobro, 5 = izvrsno."
+        },
+        "duration": {
+          "question": "Koliko vremena treba za završetak samoprocjene?",
+          "answer": "Ovisno o veličini organizacije i sigurnosnoj razini, samoprocjena može potrajati od 2-4 tjedna za osnovnu razinu do 6-8 tjedana za naprednu razinu."
+        },
+        "export": {
+          "question": "Mogu li izvoziti rezultate samoprocjene?",
+          "answer": "Da, možete izvoziti rezultate u PDF formatu za izvještavanje ili Excel formatu za daljnju analizu. Izvoz je dostupan u sekciji \"Izvještaji\"."
+        },
+        "account_settings": {
+          "question": "Kako mogu promijeniti postavke računa?",
+          "answer": "Idite na \"Postavke\" gdje možete urediti profil, postavke obavijesti, sigurnosne postavke i upravljati podacima u skladu s GDPR propisima."
+        },
+        "gdpr_compliance": {
+          "question": "Je li platforma usklađena s GDPR propisima?",
+          "answer": "Da, platforma je u potpunosti usklađena s GDPR propisima. Svi podaci se čuvaju u Republici Hrvatskoj i možete zatražiti izvoz ili brisanje podataka u bilo kojem trenutku."
+        }
+      }
+    },
+    "guides": {
+      "title": "Vodiči i dokumentacija",
+      "sections": {
+        "gettingStarted": {
+          "title": "Početak rada",
+          "description": "Osnove korištenja platforme za samoprocjenu",
+          "items": {
+            "introVideo": {
+              "title": "Uvod u platformu",
+              "description": "Pregled funkcionalnosti i mogućnosti platforme"
+            },
+            "firstAssessment": {
+              "title": "Vaša prva samoprocjena",
+              "description": "Korak-po-korak vodič za stvaranje prve samoprocjene"
+            },
+            "userGuide": {
+              "title": "Priručnik za korisnike",
+              "description": "Kompletan priručnik s detaljnim objašnjenjima"
+            }
+          }
+        },
+        "compliance": {
+          "title": "ZKS/NIS2 usklađenost",
+          "description": "Razumijevanje pravnih obveza i najboljih praksi",
+          "items": {
+            "zksOverview": {
+              "title": "Pregled ZKS zakona",
+              "description": "Ključne obveze i rokovi prema hrvatskom zakonu"
+            },
+            "nis2Guide": {
+              "title": "NIS2 direktiva objašnjena",
+              "description": "EU direktiva i njena implementacija u Hrvatskoj"
+            },
+            "sectorRequirements": {
+              "title": "Sektorski zahtjevi",
+              "description": "Specifični zahtjevi za različite sektore"
+            }
+          }
+        },
+        "assessment": {
+          "title": "Postupak samoprocjene",
+          "description": "Kako provoditi učinkovite samoprocjene",
+          "items": {
+            "methodology": {
+              "title": "Metodologija procjene",
+              "description": "Kako ocjenjivati kontrole i dokumentirati dokaze"
+            },
+            "evidenceCollection": {
+              "title": "Prikupljanje dokaza",
+              "description": "Najbolje prakse za dokumentiranje usklađenosti"
+            },
+            "collaboration": {
+              "title": "Timski rad",
+              "description": "Kako organizirati timski pristup samoprocjeni"
+            }
+          }
+        }
+      }
+    },
+    "support": {
+      "title": "Kontakt podrška",
+      "description": "Trebate dodatnu pomoć? Naš tim stručnjaka za kibernetičku sigurnost je tu za vas.",
+      "email": {
+        "title": "Email podrška",
+        "address": "support@zks-platform.hr"
+      },
+      "phone": {
+        "title": "Telefonska podrška",
+        "number": "+385 1 234 5678"
+      },
+      "hours": {
+        "title": "Radno vrijeme",
+        "time": "Pon-Pet 09:00-17:00"
+      },
+      "button": "Otvori zahtjev za podršku"
+    },
+    "status": {
+      "title": "Status platforme",
+      "allServices": "Svi servisi funkcioniraju",
+      "online": "Online"
+    }
+  },
+  "Reports": {
+    "title": "Izvještaji",
+    "description": "Analitika i izvještaji procjena",
+    "header": {
+      "title": "Izvještaji i analitika",
+      "subtitle": "Pregled samoprocjena i analiza usklađenosti s propisima ZKS/NIS2",
+      "refresh": "Osvježi podatke"
+    },
+    "statistics": {
+      "total": "Ukupno samoprocjena",
+      "completed": "Završeno",
+      "inProgress": "U tijeku",
+      "drafts": "Nacrti",
+      "avgCompliance": "Prosječna usklađenost"
+    },
+    "filters": {
+      "title": "Filteri i pretraživanje",
+      "search": {
+        "label": "Pretraži",
+        "placeholder": "Naziv, opis ili ID..."
+      },
+      "status": {
+        "label": "Status",
+        "options": {
+          "all": "Svi statusi",
+          "draft": "Nacrt",
+          "in_progress": "U tijeku",
+          "review": "Pregled",
+          "completed": "Završeno"
+        }
+      },
+      "securityLevel": {
+        "label": "Sigurnosna razina",
+        "options": {
+          "all": "Sve razine",
+          "osnovna": "Osnovna",
+          "srednja": "Srednja",
+          "napredna": "Napredna"
+        }
+      },
+      "dateRange": {
+        "label": "Vremenski period",
+        "options": {
+          "7d": "Zadnjih 7 dana",
+          "30d": "Zadnjih 30 dana",
+          "90d": "Zadnja 3 mjeseca",
+          "1y": "Zadnja godina",
+          "all": "Sve vrijeme"
+        }
+      }
+    },
+    "actions": {
+      "selectAll": "Odaberi sve",
+      "unselectAll": "Ukloni sve",
+      "exportSelected": "Izvezi odabrane ({count})",
+      "resultsCount": "Prikazano: {filtered} od {total} samoprocjena"
+    },
+    "assessmentList": {
+      "title": "Lista samoprocjena",
+      "table": {
+        "name": "Naziv",
+        "status": "Status",
+        "securityLevel": "Sigurnosna razina",
+        "lastUpdate": "Zadnje ažuriranje",
+        "actions": "Radnje"
+      },
+      "buttons": {
+        "open": "Otvori",
+        "results": "Rezultati"
+      }
+    },
+    "emptyState": {
+      "noAssessments": "Nema samoprocjena",
+      "filtered": "Pokušajte promijeniti filtere za prikaz rezultata.",
+      "none": "Još nema stvorenih samoprocjena.",
+      "createFirst": "Stvori prvu samoprocjenu"
+    },
+    "tabs": {
+      "overview": "Pregled",
+      "barCharts": "Stupčasti dijagrami",
+      "spiderDiagram": "Paukova mreža",
+      "heatMap": "Toplinska mapa"
+    },
+    "charts": {
+      "barCharts": {
+        "title": "Stupčasti dijagrami",
+        "comingSoon": "Stupčasti dijagrami uskoro dolaze",
+        "description": "Vizualizirajte podatke o usklađenosti pomoću interaktivnih stupčastih dijagrama.",
+        "selectAssessment": "Odaberite samoprocjenu",
+        "selectAssessmentDescription": "Odaberite samoprocjenu za analizu mjera",
+        "chooseAssessment": "Odaberite samoprocjenu...",
+        "incompleteWarning": "Nepotpuni podaci samoprocjene",
+        "incompleteWarningDescription": "Ova samoprocjena je {percentage}% dovršena. Grafikoni možda ne prikazuju potpunu sliku."
+      },
+      "spiderDiagram": {
+        "title": "Paukova mreža",
+        "comingSoon": "Dijagrami paukove mreže uskoro dolaze",
+        "description": "Analizirajte višedimenzionalne podatke o usklađenosti pomoću radijskih dijagrama.",
+        "selectAssessment": "Odaberite samoprocjenu",
+        "selectPlaceholder": "Odaberite samoprocjenu...",
+        "interpretation": "Tumačenje grafikona",
+        "interpretationDoc": "Bodovi dokumentacije pokazuju zrelost pisanih politika i procedura",
+        "interpretationImpl": "Bodovi implementacije odražavaju koliko se dobro kontrole primjenjuju u praksi",
+        "interpretationDimensions": "Dimenzije samoprocjene pružaju holistički pogled na zrelost usklađenosti",
+        "incompleteWarning": "Nepotpuni podaci samoprocjene",
+        "incompleteWarningDescription": "Ova samoprocjena je {percentage}% dovršena. Grafikoni možda ne prikazuju potpunu sliku."
+      },
+      "heatMap": {
+        "title": "Toplinska mapa",
+        "comingSoon": "Toplinske mape uskoro dolaze",
+        "description": "Identificirajte područja rizika i usklađenosti pomoću toplinskih mapa.",
+        "selectAssessment": "Odaberite samoprocjenu",
+        "selectPlaceholder": "Odaberite samoprocjenu...",
+        "incompleteWarning": "Nepotpuni podaci samoprocjene",
+        "incompleteWarningDescription": "Ova samoprocjena je {percentage}% dovršena. Toplinske mape možda ne prikazuju potpunu sliku.",
+        "interpretation": "Tumačenje toplinske mape",
+        "interpretationMatrix": "Matrica usklađenosti prikazuje postotke usklađenosti podmjera kroz sve mjere",
+        "interpretationGaps": "Analiza nedostataka ističe kontrole s najvećim razlikama između dokumentacije i implementacije",
+        "interpretationColors": "Boje variraju od crvene (niska usklađenost) preko žute i plave do zelene (visoka usklađenost)"
+      },
+      "complianceComparison": {
+        "title": "Usporedba usklađenosti",
+        "description": "Usporedite rezultate usklađenosti između različitih samoprocjena",
+        "compliance": "Usklađenost",
+        "securityLevel": "Sigurnosna razina",
+        "noData": "Nema završenih samoprocjena za prikaz",
+        "overallCompliance": "Ukupna usklađenost"
+      },
+      "measureComparison": {
+        "title": "Analiza po mjerama",
+        "description": "Detaljni pregled rezultata po svakoj mjeri",
+        "documentation": "Dokumentacija",
+        "implementation": "Implementacija",
+        "overallScore": "Ukupni rezultat",
+        "compliance": "Usklađenost",
+        "selectAssessment": "Odaberite samoprocjenu za prikaz analize po mjerama",
+        "noData": "Nema podataka o mjerama za odabranu samoprocjenu",
+        "toggleBreakdown": "Preklopnik detalja",
+        "showBreakdown": "Prikaži detalje",
+        "hideBreakdown": "Sakrij detalje"
+      },
+      "progressOverTime": {
+        "title": "Napredak kroz vrijeme",
+        "description": "Pratite napredak samoprocjena kroz vrijeme",
+        "overall": "Ukupno",
+        "mandatory": "Obvezno",
+        "voluntary": "Dobrovoljno",
+        "date": "Datum",
+        "noData": "Nema podataka o napretku za prikaz"
+      },
+      "securityLevelProfile": {
+        "title": "Dokumentacija vs Implementacija",
+        "description": "Usporedite bodove dokumentacije i implementacije kroz sve mjere",
+        "selectAssessment": "Odaberite samoprocjenu za prikaz analize",
+        "noData": "Nema dostupnih podataka za odabranu samoprocjenu",
+        "help": "Ovaj grafikon pokazuje koliko dobro dokumentirane kontrole se uspoređuju s njihovom stvarnom implementacijom"
+      },
+      "assessmentDimensions": {
+        "title": "Profil zrelosti samoprocjene",
+        "description": "Višedimenzionalni prikaz zrelosti i usklađenosti samoprocjene",
+        "selectAssessment": "Odaberite samoprocjenu za prikaz dimenzija",
+        "noData": "Nema dostupnih podataka o dimenzijama",
+        "help": "Ovaj radar grafikon prikazuje ukupnu usklađenost, zrelost dokumentacije/implementacije i metrike pokrivenosti",
+        "overallMaturity": "Ukupna zrelost",
+        "overallScore": "Ukupni rezultat zrelosti"
+      },
+      "complianceMatrix": {
+        "title": "Matrica rizika usklađenosti",
+        "description": "Vizualizirajte postotke usklađenosti kroz sve mjere i podmjere",
+        "selectAssessment": "Odaberite samoprocjenu za prikaz matrice usklađenosti",
+        "noData": "Nema dostupnih podataka o usklađenosti za odabranu samoprocjenu",
+        "help": "Ova matrica prikazuje postotke usklađenosti za svaku podmjeru unutar svake mjere. Tamnije boje označavaju nižu usklađenost."
+      },
+      "controlGapsHeatmap": {
+        "title": "Nedostaci implementacije kontrola",
+        "description": "Identificirajte kontrole s najvećim razlikama između dokumentacije i implementacije",
+        "selectAssessment": "Odaberite samoprocjenu za prikaz nedostataka kontrola",
+        "noData": "Nema dostupnih podataka o nedostacima kontrola",
+        "help": "Ovaj grafikon prikazuje kontrole gdje se bodovi dokumentacije i implementacije najviše razlikuju",
+        "documentation": "Dokumentacija",
+        "implementation": "Implementacija",
+        "gapAnalysis": "Sažetak analize nedostataka",
+        "totalControls": "Ukupno kontrola",
+        "controlsWithGaps": "Kontrole s nedostacima",
+        "showingTop": "Prikazuje top {count} kontrola s najvećim nedostacima",
+        "showingAll": "Prikazuje sve {count} kontrole s razlikom ≥ 2 boda",
+        "showingOne": "Prikazuje 1 kontrolu s razlikom ≥ 2 boda",
+        "noGaps": "Nema značajnih nedostataka implementacije",
+        "noGapsDescription": "Sve kontrole imaju dokumentaciju i implementaciju s razlikom manjom od 2 boda.",
+        "avgCompliance": "Prosječna usklađenost"
+      },
+      "submeasureCompliance": {
+        "title": "Analiza usklađenosti podmjera",
+        "description": "Detaljan status usklađenosti za svaku podmjeru u odnosu na minimalne zahtjeve",
+        "selectAssessment": "Odaberite procjenu za prikaz usklađenosti podmjera",
+        "noData": "Nema podataka o podmjerama za odabranu procjenu",
+        "help": "Ovaj grafikon pokazuje trenutne rezultate usklađenosti za svaku podmjeru u odnosu na minimalni potrebni prag",
+        "belowMinimum": "{count} podmjera ispod minimalnog zahtjeva"
+      },
+      "securityCategories": {
+        "title": "Performanse sigurnosnih kategorija",
+        "description": "Analiza performansi grupirana po sigurnosnim domenama",
+        "selectAssessment": "Odaberite procjenu za prikaz analize kategorija",
+        "noData": "Nema podataka o kategorijama za odabranu procjenu",
+        "help": "Ovaj grafikon grupira kontrole po sigurnosnim kategorijama kako bi identificirao jake i slabe oblasti",
+        "avgDocumentation": "Prosj. dokumentacija",
+        "avgImplementation": "Prosj. implementacija",
+        "avgCompliance": "Obavezna usklađenost",
+        "weakAreas": "Područja koja zahtijevaju pažnju"
+      },
+      "progressTimeline": {
+        "title": "Vremenska linija aktivnosti",
+        "description": "Pratite obrasce napretka procjene i vremenske linije završetka mjera",
+        "selectAssessment": "Odaberite procjenu za prikaz vremenske linije aktivnosti",
+        "noData": "Nema podataka o aktivnostima za odabranu procjenu",
+        "activityPattern": "Tjedni obrazac aktivnosti",
+        "legend": "Razina aktivnosti",
+        "noActivity": "Nema",
+        "low": "Niska",
+        "medium": "Srednja",
+        "high": "Visoka",
+        "veryHigh": "Vrlo visoka",
+        "measureProgress": "Napredak završetka mjera",
+        "days": "dana",
+        "inProgress": "U tijeku",
+        "totalDaysActive": "Ukupno aktivnih dana",
+        "avgControlsPerDay": "Prosj. kontrola/dan",
+        "peakActivity": "Dan najveće aktivnosti"
+      },
+      "riskMatrix": {
+        "title": "Matrica prioriteta rizika",
+        "description": "Strateško prioritiziranje kontrola na temelju rizika i napora implementacije",
+        "selectAssessment": "Odaberite procjenu za prikaz matrice prioriteta rizika",
+        "noControlsNeedWork": "Nema kontrola koje zahtijevaju dodatni rad",
+        "allControlsCompliant": "Sve kontrole zadovoljavaju zahtjeve usklađenosti!",
+        "mandatoryControls": "Obvezne kontrole",
+        "voluntaryControls": "Dobrovoljne kontrole",
+        "implementationEffort": "Napor implementacije (0=Lako, 100=Teško)",
+        "riskCriticality": "Rizik/Kritičnost (0=Nizak, 100=Visok)",
+        "topControls": "Glavne kontrole",
+        "more": "više",
+        "priorityRecommendation": "Preporuka prioriteta",
+        "focusOn": "Fokusirajte se na {count} brzih pobjeda za trenutni učinak.",
+        "planFor": "Planirajte resurse za {count} velikih projekata."
+      },
+      "controlPriority": {
+        "title": "Implementacija po prioritetu",
+        "description": "Usporedba implementacije obveznih i dobrovoljnih kontrola",
+        "selectAssessment": "Odaberite procjenu za prikaz prioriteta kontrola",
+        "noData": "Nema dostupnih podataka",
+        "count": "Broj",
+        "avgDoc": "Prosj. dokumentacija",
+        "avgImpl": "Prosj. implementacija",
+        "scoreDistribution": "Raspodjela ocjena po razini implementacije"
+      },
+      "topBottomControls": {
+        "title": "Najbolje i najslabije kontrole",
+        "description": "Pregled kontrola s najboljim i najslabijim performansama",
+        "selectAssessment": "Odaberite procjenu za prikaz performansi kontrola",
+        "noData": "Nema dostupnih podataka",
+        "needsImprovement": "Potrebno poboljšanje",
+        "bestPerforming": "Najbolje performanse",
+        "criticalAlert": "Kritične obvezne kontrole",
+        "criticalAlertDesc": "Neke obvezne kontrole imaju kritično niske ocjene i zahtijevaju hitnu pažnju."
+      },
+      "common": {
+        "exportChart": "Izvezi dijagram",
+        "securityLevel": {
+          "osnovna": "Osnovna",
+          "srednja": "Srednja",
+          "napredna": "Napredna"
+        }
+      }
+    }
+  },
+  "Header": {
+    "title": "AI Platforma za Samoprocjenu",
+    "login": "Prijava",
+    "register": "Registracija",
+    "dashboard": "Kontrolna Ploča",
+    "logout": "Odjava"
+  },
+  "AuthError": {
+    "title": "Greška pri prijavi",
+    "auth_error_configuration": "Dogodila se greška u konfiguraciji. Molimo kontaktirajte administratora.",
+    "auth_error_access_denied": "Pristup odbijen. Nemate ovlasti za pristup ovom resursu.",
+    "auth_error_verification": "Verifikacija nije uspjela. Molimo pokušajte ponovno.",
+    "auth_error_default": "Dogodila se neočekivana greška. Molimo pokušajte ponovno.",
+    "error_code": "Kod greške",
+    "try_again": "Pokušajte ponovno",
+    "go_home": "Početna stranica",
+    "or": "ili",
+    "contact_support": "Ako se problem nastavi, molimo kontaktirajte podršku."
+  },
+  "AuthSuccess": {
+    "title": "Uspješna prijava!",
+    "message": "Dobrodošli natrag. Uspješno ste se prijavili.",
+    "redirecting_in": "Preusmjeravanje za {seconds} sekundi...",
+    "continue_now": "Nastavi odmah"
+  },
+  "documents": {
+    "title": "Dokumenti",
+    "description": "Upravljanje dokumentima za AI potpomognutu usklađenost",
+    "upload": "Učitaj dokument",
+    "uploadGlobal": "Učitaj globalni standard",
+    "dragDrop": "Povucite i ispustite datoteke ovdje ili kliknite za odabir",
+    "processing": "Obrada...",
+    "uploadSuccess": "Dokument je uspješno učitan",
+    "uploadError": "Greška pri učitavanju dokumenta",
+    "deleteTitle": "Brisanje dokumenta",
+    "deleteConfirm": "Jeste li sigurni da želite obrisati ovaj dokument? Ova radnja se ne može poništiti.",
+    "delete": "Obriši",
+    "cancel": "Odustani",
+    "deleteSuccess": "Dokument je uspješno obrisan",
+    "deleteError": "Greška pri brisanju dokumenta",
+    "reprocess": "Ponovi obradu",
+    "reprocessSuccess": "Ponovna obrada dokumenta je započeta",
+    "reprocessError": "Greška pri ponovnoj obradi dokumenta",
+    "globalDocuments": "Globalni standardi",
+    "organizationDocuments": "Dokumenti organizacije",
+    "documentTitle": "Naslov dokumenta",
+    "enterTitle": "Unesite naslov dokumenta",
+    "searchPlaceholder": "Pretraži dokumente...",
+    "allStatuses": "Svi statusi",
+    "noDocuments": "Nema pronađenih dokumenata",
+    "uploadDate": "Datum učitavanja",
+    "size": "Veličina",
+    "actions": "Radnje",
+    "admin": {
+      "globalPageDescription": "Upravljajte globalnim standardima usklađenosti dostupnima svim organizacijama",
+      "totalStandards": "Ukupno standarda",
+      "totalSize": "Ukupna veličina",
+      "processing": "U obradi",
+      "failed": "Neuspješno",
+      "globalComplianceStandards": "Globalni standardi usklađenosti",
+      "uploadManageDescription": "Učitajte i upravljajte ISO, NIST, ZKS i drugim standardima usklađenosti",
+      "uploadGlobalDescription": "Učitajte globalni standard usklađenosti koji će biti dostupan svim organizacijama",
+      "previous": "Prethodna",
+      "next": "Sljedeća",
+      "pageOf": "Stranica {page} od {total}"
+    },
+    "documentType": {
+      "label": "Vrsta dokumenta",
+      "standard": "Standard",
+      "regulation": "Regulativa",
+      "guideline": "Smjernica",
+      "policy": "Politika",
+      "procedure": "Postupak",
+      "bestPractice": "Najbolja praksa",
+      "best_practice": "Najbolja praksa",
+      "other": "Ostalo"
+    },
+    "source": {
+      "label": "Izvor",
+      "iso": "ISO",
+      "nist": "NIST",
+      "zks": "ZKS",
+      "nis2": "NIS2",
+      "custom": "Prilagođeno",
+      "other": "Ostalo"
+    },
+    "status": {
+      "label": "Status",
+      "pending": "Na čekanju",
+      "processing": "U obradi",
+      "completed": "Završeno",
+      "failed": "Neuspješno"
+    }
+  },
+  "common": {
+    "loading": "Učitava...",
+    "save": "Spremi",
+    "cancel": "Odustani",
+    "delete": "Obriši",
+    "edit": "Uredi",
+    "search": "Pretraži",
+    "filter": "Filtriraj",
+    "clear": "Očisti",
+    "submit": "Pošalji",
+    "close": "Zatvori",
+    "yes": "Da",
+    "no": "Ne",
+    "back": "Natrag",
+    "next": "Sljedeće",
+    "previous": "Prethodno",
+    "retry": "Pokušaj ponovo",
+    "refresh": "Osvježi",
+    "navigation": {
+      "assessments": "Samoprocjene"
+    },
+    "securityLevels": {
+      "osnovna": "Osnovna",
+      "srednja": "Srednja",
+      "napredna": "Napredna"
+    },
+    "actions": {
+      "export": "Izvezi",
+      "share": "Podijeli"
+    },
+    "status": {
+      "draft": "Nacrt",
+      "inProgress": "U tijeku",
+      "review": "Pregled",
+      "completed": "Završeno",
+      "archived": "Arhivirano"
+    }
+  },
+  "admin": {
+    "adminDashboard": "Admin nadzorna ploča",
+    "adminDashboardDescription": "Sveobuhvatna administracija i upravljanje sustavom",
+    "overview": "Pregled",
+    "userManagement": "Upravljanje korisnicima",
+    "organizations": "Organizacije",
+    "globalDocuments": "Globalni dokumenti",
+    "systemStats": "Statistike sustava",
+    "quickStats": "Brze statistike",
+    "recentActivity": "Nedavna aktivnost",
+    "quickActions": "Brze akcije",
+    "manageUsers": "Upravljaj korisnicima",
+    "viewOrganizations": "Prikaži organizacije",
+    "uploadGlobalDocument": "Učitaj globalni dokument",
+    "newUserRegistrations": "Nove registracije korisnika",
+    "activeAssessments": "Aktivne procjene",
+    "documentsProcessed": "Obrađeni dokumenti",
+    "totalUsers": "Ukupno korisnika",
+    "totalOrganizations": "Ukupno organizacija",
+    "totalAssessments": "Ukupno procjena",
+    "totalDocuments": "Ukupno dokumenata",
+    "activeUsers30Days": "Aktivni korisnici (30 dana)",
+    "newRegistrations": "Nove registracije",
+    "thisMonth": "ovaj mjesec",
+    "loadingStats": "Učitavam statistike...",
+    "failedToLoadStats": "Neuspješno učitavanje statistika",
+    "usageMetrics": "Metrike korištenja",
+    "userActivityRate": "Stopa aktivnosti korisnika",
+    "avgAssessmentsPerOrg": "Prosjek procjena po org.",
+    "avgDocumentsPerOrg": "Prosjek dokumenata po org.",
+    "globalVsOrgDocuments": "Globalni vs org. dokumenti",
+    "systemHealth": "Zdravlje sustava",
+    "systemStatus": "Status sustava",
+    "databaseConnections": "Veze s bazom podataka",
+    "apiResponseTime": "Vrijeme odgovora API-ja",
+    "keycloakIntegration": "Keycloak integracija",
+    "operational": "Operativno",
+    "healthy": "Zdravo",
+    "connected": "Povezano",
+    "growthTrends": "Trendovi rasta",
+    "newUsersThisMonth": "Novi korisnici ovaj mjesec",
+    "activeUserRate": "Stopa aktivnih korisnika",
+    "globalStandards": "Globalni standardi",
+    "manageSystemUsers": "Upravljaj svim korisnicima sustava i njihovim ulogama",
+    "searchUsers": "Pretraži korisnike po imenu, email-u ili korisničkom imenu",
+    "allRoles": "Sve uloge",
+    "clearFilters": "Očisti filtere",
+    "loadingUsers": "Učitavam korisnike...",
+    "failedToLoadUsers": "Neuspješno učitavanje korisnika",
+    "user": "Korisnik",
+    "organization": "Organizacija",
+    "rolesColumn": "Uloge",
+    "status": "Status",
+    "joined": "Pridružen",
+    "actions": "Akcije",
+    "noOrganization": "Nema organizaciju",
+    "noRoles": "Nema uloge",
+    "active": "Aktivan",
+    "inactive": "Neaktivan",
+    "unknown": "Nepoznato",
+    "manageUserRoles": "Upravljaj ulogama korisnika",
+    "currentRoles": "Trenutne uloge",
+    "assignNewRole": "Dodijeli novu ulogu",
+    "roleAssignedSuccessfully": "Uloga {role} uspješno dodijeljena",
+    "roleRemovedSuccessfully": "Uloga {role} uspješno uklonjena",
+    "failedToAssignRole": "Neuspješno dodjeljivanje uloge",
+    "failedToRemoveRole": "Neuspješno uklanjanje uloge",
+    "showingResults": "Prikazuje {start} do {end} od {total} rezultata",
+    "pageOfTotal": "Stranica {page} od {total}",
+    "roles": {
+      "assessmentViewer": "Pregledatelj procjena",
+      "assessmentEditor": "Uređivač procjena",
+      "organizationAdmin": "Admin organizacije",
+      "systemAdmin": "Admin sustava"
+    },
+    "organizationManagement": "Upravljanje organizacijama",
+    "manageOrganizations": "Praćenje i upravljanje svim organizacijama u sustavu",
+    "searchOrganizations": "Pretraži organizacije po imenu",
+    "clearSearch": "Očisti pretragu",
+    "loadingOrganizations": "Učitavam organizacije...",
+    "users": "Korisnici",
+    "assessments": "Procjene",
+    "documents": "Dokumenti",
+    "activity": "Aktivnost",
+    "created": "Stvoreno",
+    "highActivity": "Visoka aktivnost",
+    "mediumActivity": "Srednja aktivnost",
+    "lowActivity": "Niska aktivnost",
+    "topPerformingOrganizations": "Najbolje organizacije",
+    "organizationDistribution": "Distribucija organizacija",
+    "smallOrganizations": "Male organizacije",
+    "mediumOrganizations": "Srednje organizacije",
+    "largeOrganizations": "Velike organizacije",
+    "avgUsersPerOrg": "Prosjek korisnika po org.",
+    "systemStatistics": "Statistike sustava",
+    "overallSystemMetrics": "Ukupne metrike sustava i indikatori performansi",
+    "manageGlobalDocuments": "Upravljaj globalnim dokumentima usklađenosti i standardima",
+    "checkingAccess": "Provjera administratorskog pristupa...",
+    "accessDenied": "Pristup odbačen",
+    "adminAccessRequired": "Potrebne su administratorske ovlasti za pristup ovoj stranici"
+  }
+}

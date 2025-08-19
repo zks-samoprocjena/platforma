@@ -1,0 +1,1591 @@
+{
+  "HomePage": {
+    "title": "AI Cybersecurity Self-Assessment",
+    "description": "Platform for self-assessment of compliance with ZKS/NIS2 regulations using advanced AI technology for analysis and improvement recommendations.",
+    "features": {
+      "assessment": {
+        "title": "Assessment",
+        "description": "Comprehensive questionnaire with 277 controls to evaluate your organization's cybersecurity posture."
+      },
+      "reporting": {
+        "title": "Reporting",
+        "description": "Detailed reports with gap analysis and recommendations for improving compliance."
+      },
+      "ai": {
+        "title": "AI Support",
+        "description": "Intelligent recommendations and contextual assistance throughout the assessment process."
+      }
+    },
+    "cta": {
+      "dashboard": "Dashboard",
+      "newAssessment": "New Assessment",
+      "login": "Sign In",
+      "register": "Register"
+    },
+    "stats": {
+      "measures": "Measures",
+      "measuresDesc": "main security categories",
+      "controls": "Controls",
+      "controlsDesc": "total security controls",
+      "levels": "Levels",
+      "levelsDesc": "security levels (basic/medium/advanced)"
+    }
+  },
+  "ComplianceDocuments": {
+    "selectDocuments": "Select Documents",
+    "generationOptions": "Generation Options", 
+    "generateDocuments": "Generate Documents",
+    "generating": "Generating...",
+    "generationProgress": "Generation Progress",
+    "generatedDocuments": "Generated Documents",
+    "generation": {
+      "started": "Generation started",
+      "completed": "Generation completed",
+      "failed": "Generation failed"
+    },
+    "selectAll": "Select All",
+    "selectedCount": "Selected: {count}",
+    "recommended": "Recommended",
+    "noDocuments": "No generated documents",
+    "descriptions": {
+      "complianceDeclaration": "Official declaration of organization's compliance with ZKS/NIS2 regulations",
+      "selfAssessmentReport": "Detailed report on self-assessment results with analysis and recommendations",
+      "internalRecord": "Internal record of the self-assessment process for archiving",
+      "evaluationReport": "Evaluation report with analysis by security measures",
+      "actionPlan": "Action plan for improving security level"
+    },
+    "options": {
+      "language": "Document Language",
+      "aiAnalysis": "AI Analysis",
+      "aiAnalysisDescription": "Include AI-generated analysis and recommendations in the document",
+      "recommendations": "Recommendations",
+      "recommendationsDescription": "Include improvement recommendations in the document",
+      "roadmap": "Roadmap",
+      "roadmapDescription": "Include implementation roadmap in the document",
+      "aiProcessingNote": "AI analysis may extend document generation time by 30-60 seconds.",
+      "noAIFeatures": "No AI features available for selected document types."
+    },
+    "actions": {
+      "refresh": "Refresh",
+      "download": "Download",
+      "generate": "Generate",
+      "generateSelected": "Generate Selected",
+      "cancel": "Cancel"
+    },
+    "status": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "completed": "Completed",
+      "failed": "Failed"
+    },
+    "table": {
+      "type": "Type",
+      "version": "Version",
+      "size": "Size",
+      "created": "Created",
+      "actions": "Actions"
+    },
+    "download": {
+      "success": "Document downloaded successfully",
+      "failed": "Document download failed"
+    },
+    "delete": {
+      "success": "Document deleted successfully",
+      "failed": "Failed to delete document",
+      "confirmTitle": "Delete Document",
+      "confirmMessage": "Are you sure you want to delete this {documentType}?",
+      "warning": "This action cannot be undone."
+    },
+    "errors": {
+      "noDocumentsSelected": "Please select at least one document type",
+      "generationFailed": "Document generation failed",
+      "generationTimeout": "Document generation timed out",
+      "fetchFailed": "Failed to fetch documents"
+    },
+    "success": {
+      "documentGenerated": "Document generated successfully",
+      "batchGenerated": "Documents generated successfully"
+    },
+    "pagination": {
+      "page": "Page"
+    }
+  },
+  "Navigation": {
+    "dashboard": "Dashboard",
+    "assessments": "Assessments",
+    "newAssessment": "New Assessment",
+    "reports": "Reports",
+    "documents": "Documents",
+    "settings": "Settings",
+    "help": "Help",
+    "logout": "Logout"
+  },
+  "Organization": {
+    "setup": {
+      "title": "Organization Setup",
+      "subtitle": "Please enter your organization details",
+      "basicInfo": "Basic Information",
+      "details": "Details",
+      "name": "Organization Name",
+      "code": "Organization Code",
+      "type": "Organization Type",
+      "securityLevel": "Security Level",
+      "website": "Website",
+      "size": "Organization Size",
+      "description": "Organization Description",
+      "next": "Next",
+      "back": "Back",
+      "complete": "Complete Setup",
+      "setting": "Setting up...",
+      "namePlaceholder": "e.g. Ministry of Economy",
+      "codePlaceholder": "e.g. MIN-ECON",
+      "codeHint": "Automatically generated from name, can be changed",
+      "organizationTypes": {
+        "government": "Government Administration",
+        "private-sector": "Private Sector",
+        "critical-infrastructure": "Critical Infrastructure",
+        "other": "Other"
+      },
+      "securityLevelDesc": {
+        "osnovna": "For smaller organizations",
+        "srednja": "For most organizations",
+        "napredna": "For critical organizations"
+      },
+      "additionalInfo": "Additional Information",
+      "sizeLabel": "employees",
+      "websitePlaceholder": "https://www.example.com",
+      "descriptionPlaceholder": "Brief description of your organization and its activities...",
+      "whyNeeded": "Why do we need this information?",
+      "whyNeededDesc": "Information about your organization helps us tailor the self-assessment to your specific needs and ensure compliance with relevant regulations.",
+      "organizationExists": "Organization already exists. You will be added to: {{name}}. Please logout and login again to refresh your access.",
+      "createError": "Error creating organization: {{error}}",
+      "setupError": "Failed to setup organization. Please try again."
+    }
+  },
+  "AI": {
+    "help": {
+      "title": "AI Help",
+      "subtitle": "Contextual recommendations and guidance",
+      "guidance": "Control guidance",
+      "askQuestion": "Ask a question",
+      "findDocuments": "Find documents",
+      "yourQuestion": "Your question",
+      "questionPlaceholder": "How do I implement this control?",
+      "ask": "Ask",
+      "sources": "Sources",
+      "noGuidance": "No guidance currently available for this control.",
+      "errorMessage": "An error occurred while fetching AI response.",
+      "tips": "Tips",
+      "tip1": "Specific questions give better answers",
+      "tip2": "Use English terms for best results",
+      "tip3": "AI can help with implementation and documentation"
+    },
+    "recommendations": {
+      "title": "AI Recommendations",
+      "loading": "Fetching personalized recommendations...",
+      "noRecommendations": "No recommendations currently available.",
+      "available": "available",
+      "criticalPriority": "Critical priority",
+      "highPriority": "High priority",
+      "mediumPriority": "Medium priority",
+      "lowPriority": "Low priority",
+      "generalPriority": "General",
+      "implementationSteps": "Implementation steps",
+      "category": "Category",
+      "impact": "Compliance impact",
+      "viewDetails": "View details",
+      "viewAll": "View all",
+      "topRecommendations": "Top 3 recommendations"
+    },
+    "chat": {
+      "title": "AI Assistant",
+      "controlContext": "AI Help for Control",
+      "subtitle": "Ask questions in English",
+      "openChat": "Open AI chat",
+      "welcomeMessage": "Hello! How can I help you with cybersecurity? Ask me any question in English.",
+      "errorMessage": "Sorry, an error occurred. Please try again.",
+      "sources": "Sources",
+      "thinking": "Thinking...",
+      "suggestedQuestions": "Suggested questions",
+      "suggestion1": "How to implement this security control?",
+      "suggestion2": "What documentation is needed for compliance?",
+      "suggestion3": "What are the best practices for this measure?",
+      "suggestion4": "How can I improve my score?",
+      "inputPlaceholder": "Enter your question here...",
+      "tip": "Press",
+      "send": "to send"
+    }
+  },
+  "Assessment": {
+    "securityLevels": {
+      "osnovna": "Basic security level",
+      "srednja": "Medium security level",
+      "napredna": "Advanced security level"
+    },
+    "securityLevel": {
+      "label": "Security level",
+      "osnovna": "Basic",
+      "srednja": "Medium",
+      "napredna": "Advanced",
+      "osnovnaDesc": "For smaller organizations with basic security needs",
+      "srednjaDesc": "For medium organizations with moderate security risks",
+      "naprednaDesc": "For critical organizations with high security requirements"
+    },
+    "controls": {
+      "documentation": "Documentation level",
+      "implementation": "Implementation level",
+      "mandatory": "Mandatory",
+      "voluntary": "Voluntary",
+      "comments": "Comments",
+      "evidence": "Evidence",
+      "askAI": "Ask AI",
+      "showDefinition": "Show definition",
+      "viewInCatalog": "View in catalog"
+    },
+    "progress": {
+      "label": "Progress",
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "notStarted": "Not Started",
+      "overall": "Overall",
+      "mandatory": "Mandatory",
+      "voluntary": "Voluntary Controls",
+      "controls": "controls"
+    },
+    "scores": {
+      "documentation": "Documentation",
+      "implementation": "Implementation",
+      "excellent": "Excellent (4-5)",
+      "good": "Good (3-4)",
+      "moderate": "Moderate (2-3)",
+      "poor": "Poor (1-2)",
+      "compliance": "Compliance"
+    },
+    "status": {
+      "all": "All",
+      "draft": "Draft",
+      "in_progress": "In Progress",
+      "review": "Review",
+      "completed": "Completed",
+      "abandoned": "Abandoned",
+      "archived": "Archived"
+    },
+    "actions": {
+      "save": "Save",
+      "submit": "Submit",
+      "continue": "Continue",
+      "resume": "Resume",
+      "previous": "Previous",
+      "next": "Next",
+      "finish": "Finish",
+      "export": "Export",
+      "exportPDF": "Export PDF",
+      "exporting": "Exporting...",
+      "archive": "Archive",
+      "duplicate": "Duplicate",
+      "delete": "Delete",
+      "createNew": "New Assessment",
+      "createFirst": "Create your first assessment",
+      "viewResults": "View results",
+      "confirmDelete": "Are you sure you want to delete this assessment?",
+      "create": "Create"
+    },
+    "deleteDialog": {
+      "title": "Confirm deletion",
+      "subtitle": "This action cannot be undone.",
+      "message": "Are you sure you want to delete the assessment \"{title}\"?",
+      "warning": "All data, including answers and results, will be permanently removed.",
+      "cancel": "Cancel",
+      "confirm": "Delete",
+      "deleting": "Deleting..."
+    },
+    "archiveDialog": {
+      "title": "Archive Assessment",
+      "subtitle": "Move this assessment to archives",
+      "message": "Are you sure you want to archive \"{title}\"?",
+      "info": "Archived assessments can be viewed but not edited. You can restore them later if needed.",
+      "cancel": "Cancel",
+      "confirm": "Archive",
+      "archiving": "Archiving..."
+    },
+    "deadline": {
+      "today": "Due today",
+      "overdue": "{days, plural, =1 {1 day overdue} other {# days overdue}}",
+      "remaining": "{days, plural, =1 {1 day left} other {# days left}}"
+    },
+    "lastEditedBy": "Last edited by {user} on {date}",
+    "unknownUser": "Unknown",
+    "deleteSuccess": "Assessment deleted successfully",
+    "deleteError": "Failed to delete assessment",
+    "archiveSuccess": "Assessment archived successfully",
+    "archiveError": "Failed to archive assessment",
+    "exportSuccess": "PDF exported successfully",
+    "exportError": "Failed to export PDF",
+    "createSuccess": "Assessment created successfully",
+    "createError": "Failed to create assessment",
+    "duplicateSuccess": "Assessment duplicated successfully",
+    "duplicateError": "Failed to duplicate assessment",
+    "fields": {
+      "title": "Assessment title",
+      "titlePlaceholder": "e.g. Q1 2024 Cybersecurity Assessment",
+      "description": "Description (optional)",
+      "descriptionPlaceholder": "Brief description of this assessment's purpose...",
+      "dueDate": "Due Date",
+      "dueDateHint": "Optional deadline for completing the assessment"
+    },
+    "search": {
+      "placeholder": "Search assessments..."
+    },
+    "sort": {
+      "updated": "Last updated",
+      "created": "Date created",
+      "title": "Title"
+    },
+    "empty": {
+      "noResults": "No search results",
+      "noAssessments": "No assessments"
+    },
+    "pagination": {
+      "page": "Page {{page}}"
+    },
+    "updatedAt": "Updated",
+    "errors": {
+      "loadingFailed": "Failed to load assessments"
+    }
+  },
+  "Dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Overview of your assessments and compliance progress with ZKS/NIS2 regulations",
+    "welcome": "Welcome",
+    "overview": "Overview",
+    "recentAssessments": "Recent Assessments",
+    "complianceOverview": "Compliance Overview",
+    "quickActions": "Quick Actions",
+    "duplicateAssessment": "Duplicate Assessment",
+    "viewAll": "View All",
+    "noAssessments": "You have no assessments",
+    "startFirst": "Start your first assessment",
+    "progress": "Progress",
+    "descriptions": {
+      "newAssessment": "Start a new cybersecurity self-assessment",
+      "duplicateAssessment": "Copy an existing assessment as a template",
+      "reports": "Review compliance reports",
+      "help": "Get help and usage instructions"
+    },
+    "statistics": {
+      "totalAssessments": "Total Assessments",
+      "completedAssessments": "Completed Assessments",
+      "averageCompliance": "Average Compliance",
+      "improvementAreas": "Improvement Areas",
+      "inProgress": "in progress",
+      "noActive": "No active",
+      "ofTotal": "of total",
+      "good": "Good",
+      "needsImprovement": "Needs improvement",
+      "measures": "measures",
+      "excellent": "Excellent",
+      "complianceByLevel": "Compliance level by security levels",
+      "level": "level",
+      "controls": "controls",
+      "noAssessments": "No assessments",
+      "completed": "completed",
+      "compliance": "compliance"
+    },
+    "status": {
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "in_progress": "In Progress",
+      "draft": "Draft",
+      "review": "Review",
+      "abandoned": "Abandoned",
+      "archived": "Archived"
+    },
+    "actions": {
+      "viewResults": "View Results",
+      "continue": "Continue",
+      "edit": "Edit",
+      "open": "Open"
+    },
+    "kpis": {
+      "title": "Key Performance Indicators",
+      "totalAssessments": "Total Assessments",
+      "totalAssessmentsSubtitle": "All assessments",
+      "completed": "Completed",
+      "ofTotal": "of total",
+      "inProgress": "In Progress",
+      "activeAssessments": "Active assessments",
+      "avgDocMaturity": "Average Documentation Maturity",
+      "avgImplMaturity": "Average Implementation Maturity",
+      "scale15": "Scale 1-5",
+      "redZoneControls": "Controls in Red Zone",
+      "highRisk": "High risk",
+      "controlsWithoutEvidence": "Controls Without Evidence",
+      "needsDocumentation": "Needs documentation",
+      "estimatedCompletion": "Estimated Completion",
+      "noActiveAssessments": "No active",
+      "basedOnProgress": "Based on progress"
+    },
+    "activities": {
+      "title": "Activities & Deadlines",
+      "assessmentUpdated": "Assessment updated: {title}",
+      "statusChanged": "Status changed to {status}",
+      "unknownUser": "Unknown user",
+      "evidenceDeadline": "Evidence deadline",
+      "controlsNeedEvidence": "{count} controls need evidence for {assessment}",
+      "dueThisWeek": "{count} items due this week",
+      "noActivities": "No recent activities"
+    }
+  },
+  "Common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "create": "Create",
+    "update": "Update",
+    "creating": "Creating...",
+    "navigation": {
+      "assessments": "Assessments"
+    },
+    "actions": {
+      "export": "Export",
+      "share": "Share"
+    },
+    "status": {
+      "draft": "Draft",
+      "inProgress": "In Progress",
+      "review": "Review",
+      "completed": "Completed",
+      "archived": "Archived"
+    }
+  },
+  "Auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "email": "Email address",
+    "password": "Password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "loginButton": "Sign In",
+    "loginError": "Login error",
+    "loginSuccess": "Successfully logged in",
+    "logoutSuccess": "Successfully logged out"
+  },
+  "errors": {
+    "title": "An error occurred",
+    "description": "An unexpected error has occurred. Please try again or contact support if the problem persists.",
+    "technicalDetails": "Technical details",
+    "tryAgain": "Try again",
+    "reloadPage": "Reload page",
+    "api": {
+      "title": "Communication error",
+      "description": "Failed to fetch data from server.",
+      "retry": "Retry"
+    }
+  },
+  "Measures": {
+    "M01": "Cybersecurity policies",
+    "M02": "Cybersecurity risk management",
+    "M03": "Asset management",
+    "M04": "Access management",
+    "M05": "Cryptography",
+    "M06": "Physical and environmental security",
+    "M07": "Operations security",
+    "M08": "Communications security",
+    "M09": "System development and maintenance",
+    "M10": "Supplier relationship management",
+    "M11": "Cybersecurity incident management",
+    "M12": "Business continuity",
+    "M13": "Compliance"
+  },
+  "results": {
+    "title": "Assessment Results",
+    "defaultDescription": "Comprehensive overview of ZKS/NIS2 compliance status",
+    "overallCompliance": "Overall Compliance",
+    "error": {
+      "title": "Error loading results",
+      "message": "An error occurred while fetching results data."
+    },
+    "complianceLevel": {
+      "excellent": "Excellent",
+      "good": "Good", 
+      "moderate": "Moderate",
+      "needsImprovement": "Needs Improvement"
+    },
+    "metrics": {
+      "completed": "Completed",
+      "controls": "Controls",
+      "mandatory": "Mandatory"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "complianceDetails": "Compliance Details",
+      "gapAnalysis": "Gap Analysis",
+      "recommendations": "Recommendations",
+      "roadmap": "Improvement Roadmap",
+      "documents": "Documents",
+      "export": "Export"
+    },
+    "overview": {
+      "complianceScore": "Compliance Score",
+      "complianceDescription": "Overall compliance level based on answered controls",
+      "progressBreakdown": "Progress Breakdown",
+      "overallCompletion": "Overall Completion",
+      "mandatoryControls": "Mandatory Controls",
+      "stats": {
+        "totalControls": "Total Controls",
+        "completed": "Completed",
+        "mandatory": "Mandatory",
+        "pending": "Pending"
+      },
+      "complianceLevel": {
+        "excellent": "Excellent (≥90%)",
+        "good": "Good (75-89%)",
+        "moderate": "Moderate (60-74%)",
+        "needsImprovement": "Needs Improvement (<60%)"
+      }
+    },
+    "measures": {
+      "title": "Measure Breakdown",
+      "submeasures": "submeasures",
+      "controls": "controls",
+      "completion": "Completion",
+      "compliance": "Compliance",
+      "averageDocumentation": "Avg Documentation",
+      "averageImplementation": "Avg Implementation",
+      "mandatoryCompleted": "Mandatory Controls",
+      "gapAreas": "Gap Areas",
+      "excellent": "Excellent",
+      "good": "Good",
+      "moderate": "Moderate",
+      "needsImprovement": "Needs Improvement"
+    },
+    "compliance": {
+      "detailsByMeasures": "Compliance Details by Measures"
+    },
+    "gaps": {
+      "title": "Gap Analysis",
+      "filters": {
+        "priority": "Priority",
+        "category": "Category",
+        "all": "All"
+      },
+      "priority": {
+        "critical": "Critical",
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      },
+      "category": {
+        "mandatory": "Mandatory",
+        "implementation": "Implementation",
+        "documentation": "Documentation"
+      },
+      "effort": {
+        "high": "High Effort",
+        "medium": "Medium Effort",
+        "low": "Low Effort"
+      },
+      "gapScore": "Gap Score",
+      "currentProgress": "Current Progress",
+      "estimatedTime": "Estimated Time",
+      "weeks": "weeks",
+      "recommendations": "Recommendations",
+      "noGaps": {
+        "title": "No gaps identified",
+        "description": "Excellent! Current filter configuration shows no gaps."
+      },
+      "summary": {
+        "title": "Gap Analysis Summary"
+      }
+    },
+    "recommendations": {
+      "title": "AI Improvement Recommendations",
+      "description": "Advanced recommendations generated by artificial intelligence based on results analysis",
+      "loading": "Generating recommendations...",
+      "error": {
+        "title": "Error generating recommendations",
+        "message": "An error occurred while fetching AI recommendations.",
+        "retry": "Retry"
+      },
+      "filters": {
+        "priority": "Priority",
+        "effort": "Effort",
+        "status": "Status",
+        "all": "All",
+        "pending": "Pending",
+        "implemented": "Implemented",
+        "sortBy": "Sort by",
+        "impactScore": "Impact",
+        "newest": "Newest"
+      },
+      "priority": {
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      },
+      "effort": {
+        "high": "High Effort",
+        "medium": "Medium Effort",
+        "low": "Low Effort"
+      },
+      "generateNew": "Generate New",
+      "generateSuccess": "Recommendations generated successfully!",
+      "implementationSteps": "Implementation Steps",
+      "weeks": "weeks",
+      "compliance": "compliance",
+      "sourceReferences": "Source References",
+      "implemented": "Implemented",
+      "markImplemented": "Mark as Implemented",
+      "regenerate": "Regenerate",
+      "regenerating": "Regenerating recommendation...",
+      "regenerateSuccess": "Recommendation regenerated successfully!",
+      "regenerateError": "Failed to regenerate recommendation",
+      "noRecommendations": {
+        "title": "No recommendations available",
+        "description": "Generate new recommendations based on current results."
+      },
+      "generateRecommendations": "Generate Recommendations",
+      "summary": {
+        "title": "Recommendations Summary"
+      },
+      "actions": {
+        "showMore": "Show More Recommendations"
+      },
+      "showingRecommendations": "Showing {count} of {total} recommendations",
+      "showingInfo": "{remaining} more recommendations available",
+      "loadingMore": "Generating more recommendations...",
+      "generatingMore": "Generating more recommendations..."
+    },
+    "roadmap": {
+      "title": "Security Improvement Roadmap",
+      "loading": "Generating improvement roadmap...",
+      "error": "Error generating improvement roadmap",
+      "retry": "Try again",
+      "stats": {
+        "totalItems": "Total Items",
+        "completed": "Completed",
+        "impact": "Impact",
+        "timeline": "Timeline",
+        "weeks": "weeks"
+      },
+      "priority": {
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      },
+      "effort": {
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      },
+      "weeks": "weeks",
+      "dependencies": "Dependencies",
+      "exportRoadmap": "Export Roadmap",
+      "scheduleReview": "Schedule Review"
+    },
+    "export": {
+      "title": "Export Results",
+      "generating": "Generating...",
+      "pdf": {
+        "title": "PDF Report",
+        "description": "Professional report for management",
+        "button": "Export PDF",
+        "success": "PDF report generated successfully",
+        "error": "Error generating PDF report",
+        "features": {
+          "compliance": "Compliance overview",
+          "gaps": "Gap analysis",
+          "recommendations": "AI recommendations",
+          "croatian": "Croatian formatting"
+        }
+      },
+      "excel": {
+        "title": "Excel Spreadsheet",
+        "description": "Structured data for analysis",
+        "button": "Export Excel",
+        "success": "Excel file generated successfully",
+        "error": "Error generating Excel file",
+        "features": {
+          "structured": "Structured data",
+          "analysis": "Detailed analyses",
+          "filtering": "Filtering and sorting",
+          "calculations": "Automatic calculations"
+        }
+      },
+      "summary": {
+        "title": "JSON Summary",
+        "description": "Programmatic data access",
+        "button": "Export Summary",
+        "success": "Summary generated successfully",
+        "error": "Error generating summary",
+        "features": {
+          "executive": "Executive summary",
+          "findings": "Key findings",
+          "actions": "Recommended actions",
+          "json": "JSON format"
+        }
+      },
+      "info": {
+        "title": "Export Information",
+        "files": "Files are automatically saved to Downloads folder",
+        "compliance": "All exports include complete compliance data",
+        "privacy": "Data processed locally - not sent to servers",
+        "format": "Formats optimized for Croatian business environment"
+      }
+    }
+  },
+  "Settings": {
+    "title": "Settings",
+    "description": "Manage your profile and application preferences",
+    "header": {
+      "title": "Settings",
+      "subtitle": "Manage your profile and platform settings"
+    },
+    "navigation": {
+      "profile": "User Profile",
+      "preferences": "Preferences",
+      "notifications": "Notifications",
+      "security": "Security",
+      "data": "Data"
+    },
+    "profile": {
+      "title": "User Profile",
+      "readOnlyHint": "This information is managed by the system and cannot be changed",
+      "editableSection": "Editable Profile Information",
+      "name": {
+        "label": "Full Name",
+        "placeholder": "Enter your full name"
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "email@example.com"
+      },
+      "organization": {
+        "label": "Organization",
+        "placeholder": "Organization name"
+      },
+      "systemRoles": {
+        "label": "System Roles",
+        "noRoles": "No roles assigned",
+        "hint": "System roles are assigned by administrators and cannot be changed here",
+        "outOfSync": "Your roles may be outdated. Please log out and log back in to refresh."
+      },
+      "jobTitle": {
+        "label": "Job Title",
+        "placeholder": "e.g. CISO, IT Manager, Security Analyst"
+      },
+      "department": {
+        "label": "Department",
+        "placeholder": "e.g. IT, Security, Compliance"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "+385 1 234 5678"
+      },
+      "location": {
+        "label": "Location",
+        "placeholder": "Zagreb, Croatia"
+      },
+      "responsibilities": {
+        "label": "Job Responsibilities",
+        "placeholder": "Describe your main responsibilities and areas of expertise..."
+      },
+      "updateSuccess": "Profile updated successfully",
+      "updateError": "Failed to update profile. Please try again.",
+      "accountInfo": {
+        "title": "Account Information",
+        "userId": "User ID:",
+        "systemRoles": "System Roles:",
+        "organizationId": "Organization ID:"
+      }
+    },
+    "preferences": {
+      "title": "Interface Settings",
+      "language": {
+        "label": "Language",
+        "options": {
+          "hr": "Croatian",
+          "en": "English"
+        }
+      },
+      "theme": {
+        "label": "Theme",
+        "options": {
+          "light": "Light",
+          "dark": "Dark",
+          "system": "System"
+        }
+      },
+      "autoSave": {
+        "title": "Auto Save",
+        "description": "Automatically saves responses during assessment work",
+        "intervalLabel": "Save interval (seconds)",
+        "currentInterval": "Current: {seconds} seconds"
+      }
+    },
+    "notifications": {
+      "title": "Notifications",
+      "emailNotifications": {
+        "title": "Email Notifications",
+        "description": "Receive notifications about important events via email"
+      },
+      "assessmentReminders": {
+        "title": "Assessment Reminders",
+        "description": "Reminders about incomplete assessments"
+      },
+      "complianceAlerts": {
+        "title": "Compliance Alerts",
+        "description": "Notifications about critical compliance gaps"
+      },
+      "weeklyReports": {
+        "title": "Weekly Reports",
+        "description": "Weekly progress summary and recommendations"
+      }
+    },
+    "security": {
+      "title": "Security",
+      "recommendation": {
+        "title": "Security Recommendation",
+        "description": "Enable two-factor authentication for additional account security."
+      },
+      "twoFactor": {
+        "title": "Two-Factor Authentication (2FA)",
+        "description": "Additional security layer for your account",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "enable": "Enable",
+        "disable": "Disable"
+      },
+      "sessionTimeout": {
+        "label": "Session Timeout (minutes)",
+        "options": {
+          "60": "1 hour",
+          "240": "4 hours",
+          "480": "8 hours",
+          "720": "12 hours",
+          "1440": "24 hours"
+        }
+      },
+      "passwordManagement": {
+        "title": "Password Management",
+        "changePassword": "Change Password",
+        "generatePassword": "Generate Secure Password"
+      }
+    },
+    "data": {
+      "title": "Data Management",
+      "gdprCompliance": {
+        "title": "GDPR Compliance",
+        "description": "Your data is processed in accordance with GDPR regulations and stored in the Republic of Croatia."
+      },
+      "dataRetention": {
+        "label": "Data retention period (months)",
+        "options": {
+          "12": "12 months",
+          "24": "24 months",
+          "36": "36 months",
+          "60": "5 years",
+          "84": "7 years"
+        },
+        "recommendation": "Recommended: 24 months for regulatory requirements"
+      },
+      "shareAnalytics": {
+        "title": "Share Analytics",
+        "description": "Anonymous data for platform improvement"
+      },
+      "exportAndDelete": {
+        "title": "Export and Delete Data",
+        "exportData": "Export all my data (GDPR request)",
+        "deleteAccount": "Request account deletion"
+      }
+    },
+    "actions": {
+      "unsavedChanges": "Unsaved changes",
+      "cancel": "Cancel",
+      "save": "Save Changes",
+      "saving": "Saving..."
+    }
+  },
+  "Help": {
+    "title": "Help",
+    "description": "Documentation and support for using the platform",
+    "header": {
+      "title": "Help Center",
+      "subtitle": "Documentation, guides and frequently asked questions for ZKS/NIS2 platform"
+    },
+    "quickActions": {
+      "videoGuides": {
+        "title": "Video Guides",
+        "description": "Watch short video guides for faster platform adoption",
+        "button": "View All"
+      },
+      "contactSupport": {
+        "title": "Contact Support",
+        "description": "Need additional help? Contact our professional support team",
+        "button": "Contact"
+      },
+      "documentation": {
+        "title": "Documentation",
+        "description": "Download detailed documentation and manuals in PDF format",
+        "button": "Download"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "search": {
+        "placeholder": "Search questions..."
+      },
+      "categories": {
+        "all": "All Categories",
+        "general": "General",
+        "assessment": "Assessment",
+        "compliance": "Compliance",
+        "technical": "Technical",
+        "account": "Account"
+      },
+      "priority": {
+        "high": "Important"
+      },
+      "noResults": {
+        "title": "No Results",
+        "message": "Try different search terms or categories."
+      },
+      "items": {
+        "zks_nis2": {
+          "question": "What is ZKS/NIS2 directive and why is it important?",
+          "answer": "ZKS (Cybersecurity Act) is the Croatian law that implements the EU NIS2 directive. It prescribes cybersecurity obligations for essential and important entities in Croatia, including banks, energy companies, telecommunications and other critical sectors."
+        },
+        "create_assessment": {
+          "question": "How to start a new self-assessment?",
+          "answer": "Go to \"Assessments\" in the main menu and click \"New Assessment\". Choose the appropriate security level (basic, medium, advanced) depending on the size and complexity of your organization."
+        },
+        "security_levels": {
+          "question": "What is the difference between security levels?",
+          "answer": "Basic level (227 controls) is for smaller organizations, medium and advanced level (277 controls) for larger and more complex organizations with higher risks."
+        },
+        "scoring": {
+          "question": "How are controls evaluated?",
+          "answer": "Each control is evaluated on a scale of 1-5 for documentation and implementation. 1 = non-existent, 2 = partial, 3 = satisfactory, 4 = good, 5 = excellent."
+        },
+        "duration": {
+          "question": "How long does it take to complete a self-assessment?",
+          "answer": "Depending on the size of the organization and security level, a self-assessment can take from 2-4 weeks for basic level to 6-8 weeks for advanced level."
+        },
+        "export": {
+          "question": "Can I export self-assessment results?",
+          "answer": "Yes, you can export results in PDF format for reporting or Excel format for further analysis. Export is available in the \"Reports\" section."
+        },
+        "account_settings": {
+          "question": "How can I change account settings?",
+          "answer": "Go to \"Settings\" where you can edit profile, notification settings, security settings and manage data in accordance with GDPR regulations."
+        },
+        "gdpr_compliance": {
+          "question": "Is the platform compliant with GDPR regulations?",
+          "answer": "Yes, the platform is fully compliant with GDPR regulations. All data is stored in the Republic of Croatia and you can request data export or deletion at any time."
+        }
+      }
+    },
+    "guides": {
+      "title": "Guides and Documentation",
+      "sections": {
+        "gettingStarted": {
+          "title": "Getting Started",
+          "description": "Basics of using the self-assessment platform",
+          "items": {
+            "introVideo": {
+              "title": "Platform Introduction",
+              "description": "Overview of platform features and capabilities"
+            },
+            "firstAssessment": {
+              "title": "Your First Assessment",
+              "description": "Step-by-step guide for creating your first assessment"
+            },
+            "userGuide": {
+              "title": "User Manual",
+              "description": "Complete manual with detailed explanations"
+            }
+          }
+        },
+        "compliance": {
+          "title": "ZKS/NIS2 Compliance",
+          "description": "Understanding legal obligations and best practices",
+          "items": {
+            "zksOverview": {
+              "title": "ZKS Law Overview",
+              "description": "Key obligations and deadlines under Croatian law"
+            },
+            "nis2Guide": {
+              "title": "NIS2 Directive Explained",
+              "description": "EU directive and its implementation in Croatia"
+            },
+            "sectorRequirements": {
+              "title": "Sector Requirements",
+              "description": "Specific requirements for different sectors"
+            }
+          }
+        },
+        "assessment": {
+          "title": "Assessment Process",
+          "description": "How to conduct effective self-assessments",
+          "items": {
+            "methodology": {
+              "title": "Assessment Methodology",
+              "description": "How to evaluate controls and document evidence"
+            },
+            "evidenceCollection": {
+              "title": "Evidence Collection",
+              "description": "Best practices for documenting compliance"
+            },
+            "collaboration": {
+              "title": "Team Collaboration",
+              "description": "How to organize team-based assessment approach"
+            }
+          }
+        }
+      }
+    },
+    "support": {
+      "title": "Contact Support",
+      "description": "Need additional help? Our team of cybersecurity experts is here for you.",
+      "email": {
+        "title": "Email Support",
+        "address": "support@zks-platform.hr"
+      },
+      "phone": {
+        "title": "Phone Support",
+        "number": "+385 1 234 5678"
+      },
+      "hours": {
+        "title": "Working Hours",
+        "time": "Mon-Fri 09:00-17:00"
+      },
+      "button": "Open Support Request"
+    },
+    "status": {
+      "title": "Platform Status",
+      "allServices": "All services are operational",
+      "online": "Online"
+    }
+  },
+  "Reports": {
+    "title": "Reports",
+    "description": "Analytics and assessment reports",
+    "header": {
+      "title": "Reports and Analytics",
+      "subtitle": "Overview of assessments and compliance analysis with ZKS/NIS2 regulations",
+      "refresh": "Refresh data"
+    },
+    "statistics": {
+      "total": "Total assessments",
+      "completed": "Completed",
+      "inProgress": "In progress",
+      "drafts": "Drafts",
+      "avgCompliance": "Average compliance"
+    },
+    "filters": {
+      "title": "Filters and search",
+      "search": {
+        "label": "Search",
+        "placeholder": "Name, description or ID..."
+      },
+      "status": {
+        "label": "Status",
+        "options": {
+          "all": "All statuses",
+          "draft": "Draft",
+          "in_progress": "In progress",
+          "review": "Review",
+          "completed": "Completed"
+        }
+      },
+      "securityLevel": {
+        "label": "Security level",
+        "options": {
+          "all": "All levels",
+          "osnovna": "Basic",
+          "srednja": "Medium",
+          "napredna": "Advanced"
+        }
+      },
+      "dateRange": {
+        "label": "Time period",
+        "options": {
+          "7d": "Last 7 days",
+          "30d": "Last 30 days",
+          "90d": "Last 3 months",
+          "1y": "Last year",
+          "all": "All time"
+        }
+      }
+    },
+    "actions": {
+      "selectAll": "Select all",
+      "unselectAll": "Unselect all",
+      "exportSelected": "Export selected ({count})",
+      "resultsCount": "Showing: {filtered} of {total} assessments"
+    },
+    "assessmentList": {
+      "title": "Assessment list",
+      "table": {
+        "name": "Name",
+        "status": "Status",
+        "securityLevel": "Security level",
+        "lastUpdate": "Last update",
+        "actions": "Actions"
+      },
+      "buttons": {
+        "open": "Open",
+        "results": "Results"
+      }
+    },
+    "emptyState": {
+      "noAssessments": "No assessments",
+      "filtered": "Try changing filters to display results.",
+      "none": "No assessments have been created yet.",
+      "createFirst": "Create first assessment"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "barCharts": "Bar Charts",
+      "spiderDiagram": "Spider Diagram",
+      "heatMap": "Heat Map"
+    },
+    "charts": {
+      "barCharts": {
+        "title": "Bar Charts",
+        "comingSoon": "Bar charts coming soon",
+        "description": "Visualize compliance data using interactive bar charts.",
+        "selectAssessment": "Select Assessment",
+        "selectAssessmentDescription": "Choose an assessment for measure analysis",
+        "chooseAssessment": "Choose assessment...",
+        "incompleteWarning": "Incomplete Assessment Data",
+        "incompleteWarningDescription": "This assessment is {percentage}% complete. Charts may not show the full picture."
+      },
+      "spiderDiagram": {
+        "title": "Spider Diagram",
+        "comingSoon": "Spider diagrams coming soon",
+        "description": "Analyze multi-dimensional compliance data using radar charts.",
+        "selectAssessment": "Select Assessment",
+        "selectPlaceholder": "Choose an assessment...",
+        "interpretation": "Chart Interpretation",
+        "interpretationDoc": "Documentation scores show the maturity of written policies and procedures",
+        "interpretationImpl": "Implementation scores reflect how well controls are applied in practice",
+        "interpretationDimensions": "Assessment dimensions provide a holistic view of compliance maturity",
+        "incompleteWarning": "Incomplete Assessment Data",
+        "incompleteWarningDescription": "This assessment is {percentage}% complete. Charts may not show the full picture."
+      },
+      "heatMap": {
+        "title": "Heat Map",
+        "comingSoon": "Heat maps coming soon",
+        "description": "Identify risk and compliance areas using heat map visualizations.",
+        "selectAssessment": "Select Assessment",
+        "selectPlaceholder": "Choose an assessment...",
+        "incompleteWarning": "Incomplete Assessment Data",
+        "incompleteWarningDescription": "This assessment is {percentage}% complete. Heat maps may not show the full picture.",
+        "interpretation": "Heat Map Interpretation",
+        "interpretationMatrix": "The compliance matrix shows submeasure compliance percentages across all measures",
+        "interpretationGaps": "The gaps analysis highlights controls with the largest differences between documentation and implementation",
+        "interpretationColors": "Colors range from red (low compliance) through amber and blue to green (high compliance)"
+      },
+      "complianceComparison": {
+        "title": "Compliance Comparison",
+        "description": "Compare compliance scores across different assessments",
+        "compliance": "Compliance",
+        "securityLevel": "Security Level",
+        "noData": "No completed assessments to display",
+        "overallCompliance": "Overall Compliance"
+      },
+      "measureComparison": {
+        "title": "Measure-by-Measure Analysis",
+        "description": "Detailed breakdown of scores by each measure",
+        "documentation": "Documentation",
+        "implementation": "Implementation",
+        "overallScore": "Overall Score",
+        "compliance": "Compliance",
+        "selectAssessment": "Select an assessment to view measure analysis",
+        "noData": "No measure data available for the selected assessment",
+        "toggleBreakdown": "Toggle breakdown",
+        "showBreakdown": "Show breakdown",
+        "hideBreakdown": "Hide breakdown"
+      },
+      "progressOverTime": {
+        "title": "Progress Over Time",
+        "description": "Track assessment progress over time",
+        "overall": "Overall",
+        "mandatory": "Mandatory",
+        "voluntary": "Voluntary",
+        "date": "Date",
+        "noData": "No progress data to display"
+      },
+      "securityLevelProfile": {
+        "title": "Documentation vs Implementation",
+        "description": "Compare documentation and implementation scores across all measures",
+        "selectAssessment": "Select an assessment to view the analysis",
+        "noData": "No data available for the selected assessment",
+        "help": "This chart shows how well documented controls compare to their actual implementation"
+      },
+      "assessmentDimensions": {
+        "title": "Assessment Maturity Profile",
+        "description": "Multi-dimensional view of assessment maturity and compliance",
+        "selectAssessment": "Select an assessment to view dimensions",
+        "noData": "No dimension data available",
+        "help": "This radar chart displays overall compliance, documentation/implementation maturity, and coverage metrics",
+        "overallMaturity": "Overall Maturity",
+        "overallScore": "Overall Maturity Score"
+      },
+      "complianceMatrix": {
+        "title": "Compliance Risk Matrix",
+        "description": "Visualize compliance percentages across all measures and submeasures",
+        "selectAssessment": "Select an assessment to view the compliance matrix",
+        "noData": "No compliance data available for the selected assessment",
+        "help": "This matrix shows compliance percentages for each submeasure within each measure. Darker colors indicate lower compliance."
+      },
+      "controlGapsHeatmap": {
+        "title": "Control Implementation Gaps",
+        "description": "Identify controls with the largest gaps between documentation and implementation",
+        "selectAssessment": "Select an assessment to view control gaps",
+        "noData": "No control gap data available",
+        "help": "This chart shows controls where documentation and implementation scores differ most significantly",
+        "documentation": "Documentation",
+        "implementation": "Implementation",
+        "gapAnalysis": "Gap Analysis Summary",
+        "totalControls": "Total Controls",
+        "controlsWithGaps": "Controls with Gaps",
+        "showingTop": "Showing top {count} controls with largest gaps",
+        "showingAll": "Showing all {count} controls with gaps ≥ 2 points",
+        "showingOne": "Showing 1 control with gap ≥ 2 points",
+        "noGaps": "No Significant Implementation Gaps Found",
+        "noGapsDescription": "All controls have documentation and implementation scores within 1 point of each other.",
+        "avgCompliance": "Average Compliance"
+      },
+      "submeasureCompliance": {
+        "title": "Submeasure Compliance Analysis",
+        "description": "Detailed compliance status for each submeasure compared to minimum requirements",
+        "selectAssessment": "Select an assessment to view submeasure compliance",
+        "noData": "No submeasure data available for the selected assessment",
+        "help": "This chart shows current compliance scores for each submeasure against the minimum required threshold",
+        "belowMinimum": "{count} submeasures below minimum requirement"
+      },
+      "securityCategories": {
+        "title": "Security Categories Performance",
+        "description": "Performance analysis grouped by security domains",
+        "selectAssessment": "Select an assessment to view category analysis",
+        "noData": "No category data available for the selected assessment",
+        "help": "This chart groups controls by security categories to identify strong and weak areas",
+        "avgDocumentation": "Avg Documentation",
+        "avgImplementation": "Avg Implementation",
+        "avgCompliance": "Mandatory Compliance",
+        "weakAreas": "Areas Requiring Attention"
+      },
+      "progressTimeline": {
+        "title": "Activity Timeline Heatmap",
+        "description": "Track assessment progress patterns and measure completion timelines",
+        "selectAssessment": "Select an assessment to view activity timeline",
+        "noData": "No activity data available for the selected assessment",
+        "activityPattern": "Weekly Activity Pattern",
+        "legend": "Activity Level",
+        "noActivity": "None",
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "veryHigh": "Very High",
+        "measureProgress": "Measure Completion Progress",
+        "days": "days",
+        "inProgress": "In Progress",
+        "totalDaysActive": "Total Active Days",
+        "avgControlsPerDay": "Avg Controls/Day",
+        "peakActivity": "Peak Activity Day"
+      },
+      "riskMatrix": {
+        "title": "Risk Priority Matrix",
+        "description": "Strategic prioritization of controls based on risk and implementation effort",
+        "selectAssessment": "Select an assessment to view risk priority matrix",
+        "noControlsNeedWork": "No controls require additional work",
+        "allControlsCompliant": "All controls meet compliance requirements!",
+        "mandatoryControls": "Mandatory Controls",
+        "voluntaryControls": "Voluntary Controls",
+        "implementationEffort": "Implementation Effort (0=Easy, 100=Hard)",
+        "riskCriticality": "Risk/Criticality (0=Low, 100=High)",
+        "topControls": "Top controls",
+        "more": "more",
+        "priorityRecommendation": "Priority Recommendation",
+        "focusOn": "Focus on {count} quick wins first for immediate impact.",
+        "planFor": "Plan resources for {count} major projects."
+      },
+      "controlPriority": {
+        "title": "Implementation by Priority",
+        "description": "Comparison of mandatory vs voluntary control implementation",
+        "selectAssessment": "Select an assessment to view control priorities",
+        "noData": "No data available",
+        "count": "Count",
+        "avgDoc": "Avg Documentation",
+        "avgImpl": "Avg Implementation",
+        "scoreDistribution": "Score Distribution by Implementation Level"
+      },
+      "topBottomControls": {
+        "title": "Top and Bottom Performing Controls",
+        "description": "Overview of best and worst performing controls",
+        "selectAssessment": "Select an assessment to view control performance",
+        "noData": "No data available",
+        "needsImprovement": "Needs Improvement",
+        "bestPerforming": "Best Performing",
+        "criticalAlert": "Critical Mandatory Controls",
+        "criticalAlertDesc": "Some mandatory controls have critically low scores and require immediate attention."
+      },
+      "common": {
+        "exportChart": "Export chart",
+        "securityLevel": {
+          "osnovna": "Basic",
+          "srednja": "Medium",
+          "napredna": "Advanced"
+        }
+      }
+    }
+  },
+  "Header": {
+    "title": "AI Assessment Platform",
+    "login": "Login",
+    "register": "Register",
+    "dashboard": "Dashboard",
+    "logout": "Logout"
+  },
+  "AuthError": {
+    "title": "Authentication Error",
+    "auth_error_configuration": "A configuration error occurred. Please contact the administrator.",
+    "auth_error_access_denied": "Access denied. You do not have permission to access this resource.",
+    "auth_error_verification": "Verification failed. Please try again.",
+    "auth_error_default": "An unexpected error occurred. Please try again.",
+    "error_code": "Error code",
+    "try_again": "Try Again",
+    "go_home": "Go Home",
+    "or": "or",
+    "contact_support": "If the problem persists, please contact support."
+  },
+  "AuthSuccess": {
+    "title": "Login Successful!",
+    "message": "Welcome back. You have successfully logged in.",
+    "redirecting_in": "Redirecting in {seconds} seconds...",
+    "continue_now": "Continue Now"
+  },
+  "documents": {
+    "title": "Documents",
+    "description": "Manage documents for AI-powered compliance assistance",
+    "upload": "Upload Document",
+    "uploadGlobal": "Upload Global Standard",
+    "dragDrop": "Drag and drop files here, or click to select",
+    "processing": "Processing...",
+    "uploadSuccess": "Document uploaded successfully",
+    "uploadError": "Failed to upload document",
+    "deleteTitle": "Delete Document",
+    "deleteConfirm": "Are you sure you want to delete this document? This action cannot be undone.",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "deleteSuccess": "Document deleted successfully",
+    "deleteError": "Failed to delete document",
+    "reprocess": "Reprocess",
+    "reprocessSuccess": "Document reprocessing started",
+    "reprocessError": "Failed to reprocess document",
+    "globalDocuments": "Global Standards",
+    "organizationDocuments": "Organization Documents",
+    "documentTitle": "Document Title",
+    "enterTitle": "Enter document title",
+    "searchPlaceholder": "Search documents...",
+    "allStatuses": "All statuses",
+    "noDocuments": "No documents found",
+    "uploadDate": "Upload Date",
+    "size": "Size",
+    "actions": "Actions",
+    "admin": {
+      "globalPageDescription": "Manage global compliance standards available to all organizations",
+      "totalStandards": "Total Standards",
+      "totalSize": "Total Size",
+      "processing": "Processing",
+      "failed": "Failed",
+      "globalComplianceStandards": "Global Compliance Standards",
+      "uploadManageDescription": "Upload and manage ISO, NIST, ZKS and other compliance standards",
+      "uploadGlobalDescription": "Upload a global compliance standard that will be available to all organizations",
+      "previous": "Previous",
+      "next": "Next",
+      "pageOf": "Page {page} of {total}"
+    },
+    "documentType": {
+      "label": "Document Type",
+      "standard": "Standard",
+      "regulation": "Regulation",
+      "guideline": "Guideline",
+      "policy": "Policy",
+      "procedure": "Procedure",
+      "bestPractice": "Best Practice",
+      "best_practice": "Best Practice",
+      "other": "Other"
+    },
+    "source": {
+      "label": "Source",
+      "iso": "ISO",
+      "nist": "NIST",
+      "zks": "ZKS",
+      "nis2": "NIS2",
+      "custom": "Custom",
+      "other": "Other"
+    },
+    "status": {
+      "label": "Status",
+      "pending": "Pending",
+      "processing": "Processing",
+      "completed": "Completed",
+      "failed": "Failed"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear",
+    "submit": "Submit",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "success": "Success",
+    "error": "Error",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "retry": "Retry",
+    "refresh": "Refresh",
+    "navigation": {
+      "assessments": "Assessments"
+    },
+    "securityLevels": {
+      "osnovna": "Basic",
+      "srednja": "Medium",
+      "napredna": "Advanced"
+    },
+    "actions": {
+      "export": "Export",
+      "share": "Share"
+    },
+    "status": {
+      "draft": "Draft",
+      "inProgress": "In Progress",
+      "review": "Review",
+      "completed": "Completed",
+      "archived": "Archived"
+    }
+  },
+  "admin": {
+    "adminDashboard": "Admin Dashboard",
+    "adminDashboardDescription": "Comprehensive system administration and management",
+    "overview": "Overview",
+    "userManagement": "User Management",
+    "organizations": "Organizations",
+    "globalDocuments": "Global Documents",
+    "systemStats": "System Statistics",
+    "quickStats": "Quick Statistics",
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions",
+    "manageUsers": "Manage Users",
+    "viewOrganizations": "View Organizations", 
+    "uploadGlobalDocument": "Upload Global Document",
+    "newUserRegistrations": "New User Registrations",
+    "activeAssessments": "Active Assessments",
+    "documentsProcessed": "Documents Processed",
+    "totalUsers": "Total Users",
+    "totalOrganizations": "Total Organizations",
+    "totalAssessments": "Total Assessments",
+    "totalDocuments": "Total Documents",
+    "activeUsers30Days": "Active Users (30 days)",
+    "newRegistrations": "New Registrations",
+    "thisMonth": "this month",
+    "loadingStats": "Loading statistics...",
+    "failedToLoadStats": "Failed to load statistics",
+    "usageMetrics": "Usage Metrics",
+    "userActivityRate": "User Activity Rate",
+    "avgAssessmentsPerOrg": "Avg Assessments per Org",
+    "avgDocumentsPerOrg": "Avg Documents per Org", 
+    "globalVsOrgDocuments": "Global vs Org Documents",
+    "systemHealth": "System Health",
+    "systemStatus": "System Status",
+    "databaseConnections": "Database Connections",
+    "apiResponseTime": "API Response Time",
+    "keycloakIntegration": "Keycloak Integration",
+    "operational": "Operational",
+    "healthy": "Healthy",
+    "connected": "Connected",
+    "growthTrends": "Growth Trends",
+    "newUsersThisMonth": "New Users This Month",
+    "activeUserRate": "Active User Rate",
+    "globalStandards": "Global Standards",
+    "manageSystemUsers": "Manage all system users and their roles",
+    "searchUsers": "Search users by name, email, or username",
+    "allRoles": "All Roles",
+    "clearFilters": "Clear Filters",
+    "loadingUsers": "Loading users...",
+    "failedToLoadUsers": "Failed to load users",
+    "user": "User", 
+    "organization": "Organization",
+    "rolesColumn": "Roles",
+    "status": "Status",
+    "joined": "Joined",
+    "actions": "Actions",
+    "noOrganization": "No Organization",
+    "noRoles": "No Roles",
+    "active": "Active",
+    "inactive": "Inactive",
+    "unknown": "Unknown",
+    "manageUserRoles": "Manage User Roles",
+    "currentRoles": "Current Roles",
+    "assignNewRole": "Assign New Role",
+    "roleAssignedSuccessfully": "Role {role} assigned successfully",
+    "roleRemovedSuccessfully": "Role {role} removed successfully",
+    "failedToAssignRole": "Failed to assign role",
+    "failedToRemoveRole": "Failed to remove role",
+    "showingResults": "Showing {start} to {end} of {total} results",
+    "pageOfTotal": "Page {page} of {total}",
+    "roles": {
+      "assessmentViewer": "Assessment Viewer",
+      "assessmentEditor": "Assessment Editor", 
+      "organizationAdmin": "Organization Admin",
+      "systemAdmin": "System Admin"
+    },
+    "organizationManagement": "Organization Management",
+    "manageOrganizations": "Monitor and manage all organizations in the system",
+    "searchOrganizations": "Search organizations by name",
+    "clearSearch": "Clear Search",
+    "loadingOrganizations": "Loading organizations...",
+    "users": "Users",
+    "assessments": "Assessments",
+    "documents": "Documents",
+    "activity": "Activity",
+    "created": "Created",
+    "highActivity": "High Activity",
+    "mediumActivity": "Medium Activity", 
+    "lowActivity": "Low Activity",
+    "topPerformingOrganizations": "Top Performing Organizations",
+    "organizationDistribution": "Organization Distribution",
+    "smallOrganizations": "Small Organizations",
+    "mediumOrganizations": "Medium Organizations",
+    "largeOrganizations": "Large Organizations",
+    "avgUsersPerOrg": "Avg Users per Org",
+    "systemStatistics": "System Statistics",
+    "overallSystemMetrics": "Overall system metrics and performance indicators",
+    "manageGlobalDocuments": "Manage global compliance documents and standards",
+    "checkingAccess": "Checking admin access...",
+    "accessDenied": "Access Denied",
+    "adminAccessRequired": "Administrator privileges required to access this page"
+  }
+}

@@ -1,0 +1,10 @@
+{# Base header template for all documents #}
+<div class="document-header">
+    <div class="organization-info">
+        <div class="organization-name">{{ organization.name }}</div>
+        <div class="organization-details">
+            {% if organization.code %}Šifra: {{ organization.code }}{% endif %}
+            {% if organization.website %} | Web: {{ organization.website }}{% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+services:
+  # Development overrides for frontend (gateway)
+  gateway:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: development
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - BACKEND_URL=http://assessment-api:8000
+      - NEXT_PUBLIC_KEYCLOAK_URL=http://localhost:8080
+      - NEXT_PUBLIC_KEYCLOAK_REALM=assessment-platform
+      - NEXT_PUBLIC_KEYCLOAK_CLIENT_ID=assessment-frontend
+    volumes:
+      - ./frontend/app:/app/app:ro
+      - ./frontend/components:/app/components:ro
+      - ./frontend/hooks:/app/hooks:ro
+      - ./frontend/lib:/app/lib:ro
+      - ./frontend/messages:/app/messages:ro
+      - ./frontend/stores:/app/stores:ro
+      - ./frontend/types:/app/types:ro
+      - ./frontend/middleware.ts:/app/middleware.ts:ro
+      - ./frontend/next.config.js:/app/next.config.js:ro
+      - ./frontend/tailwind.config.js:/app/tailwind.config.js:ro
+      - ./frontend/postcss.config.js:/app/postcss.config.js:ro
+      - ./frontend/tsconfig.json:/app/tsconfig.json:ro
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000"
+    depends_on:
+      - assessment-api
+
+  # Development overrides for backend API
+  assessment-api:
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/assessment_db
+      - REDIS_URL=redis://redis:6379/0
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - DEBUG=true
+      - LOG_LEVEL=debug
+      - KEYCLOAK_URL=http://keycloak:8080
+      - KEYCLOAK_REALM=assessment-platform
+      - KEYCLOAK_CLIENT_ID=assessment-backend
+      - KEYCLOAK_CLIENT_SECRET=backend-secret
+    volumes:
+      - ./backend:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload

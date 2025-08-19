@@ -1,0 +1,1 @@
+# Make performance tests directory a Python package

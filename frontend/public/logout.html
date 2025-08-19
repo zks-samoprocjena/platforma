@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Logging out...</title>
+    <script>
+        // Clear all cookies
+        document.cookie.split(";").forEach(function(c) { 
+            document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+        });
+        
+        // Clear storage
+        try {
+            localStorage.clear();
+            sessionStorage.clear();
+        } catch(e) {}
+        
+        // Redirect to home
+        setTimeout(function() {
+            window.location.href = '/hr';
+        }, 500);
+    </script>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 50px;">
+        <p>Odjava u tijeku...</p>
+    </div>
+</body>
+</html>
